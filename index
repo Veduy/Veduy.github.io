@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veduy | Game Programmer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="intro">
+      <h1>Veduy</h1>
+      <p>Game Programmer · Unreal Engine</p>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        Unreal Engine 5 기반 멀티플레이 게임 개발을 공부하고 있습니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Unreal Engine 5 (C++ / Blueprint)</li>
+        <li>Gameplay Ability System</li>
+        <li>Network Replication</li>
+        <li>C++ / TCP Server</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Gacha Hell Island</h3>
+        <p>멀티플레이 생존 게임 (UE5)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: your@email.com</p>
+      <p>GitHub: <a href="https://github.com/Veduy">github.com/Veduy</a></p>
+    </section>
+  </main>
+</body>
+</html>
