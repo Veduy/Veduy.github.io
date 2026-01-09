@@ -31,27 +31,28 @@ ul {
   padding-left: 20px;
 }
 
-.project-table {
+table.project-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   font-size: 14px;
 }
 
-.project-table th,
-.project-table td {
-  border: 1px solid #ddd;
+table.project-table th,
+table.project-table td {
+  border: 1px solid #d1d5db;
   padding: 12px;
   vertical-align: top;
 }
 
-.project-table th {
-  background-color: #f5f5f5;
+table.project-table th {
+  background-color: #f1f5f9;
   width: 140px;
   text-align: left;
+  font-weight: 600;
 }
 
-.project-table img {
+table.project-table img {
   border-radius: 8px;
 }
 
