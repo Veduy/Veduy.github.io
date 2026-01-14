@@ -16,7 +16,7 @@
 <body>
   <main class="container">
     <section class="intro">
-      <h1>지원자 원유찬입니다.</h1>
+      <h1>안녕하세요지원자 원유찬입니다.</h1>
       <p>Junior Game Programmer</p>
     </section>
 
@@ -34,7 +34,7 @@
         <li>Winsock (Socket Programming)</li>
         <li>Unreal Engine 5</li>
         <li>Gameplay Ability System (GAS)</li>
-        <li>MySQL Integration</li>
+        <li>MySQL Querying</li>
       </ul>
     </section>
 
@@ -46,29 +46,33 @@
           <td colspan="3"><strong>Megabonky</strong></td>
         </tr>
         <tr>
-          <th>프로젝트 개요</th>
+          <th>이미지(GIF)</th>
           <td colspan="3">
-            GAS를 핵심으로 멀티플레이가 가능한 MegaBonk 모작 (Unreal Engine 멀티플레이)
+            <img src="images/megabonk_gameplay.gif" alt="MegaBonk Gameplay GIF"
+              style="max-width: 100%; border-radius: 8px;">
           </td>
         </tr>
         <tr>
-          <th>작업 인원 / 기간</th>
+          <th>프로젝트 개요</th>
+          <td colspan="3">
+            실무급 서버-클라이언트 아키텍처에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.<br>
+            전용 서버(Dedicated Server) 기반의 온라인 멀티플레이 환경에서 게임 루프 동기화와 데이터 무결성 보장을 최우선 과제로 삼아 개발되었습니다.
+          </td>
+        </tr>
+        <tr>
+          <th>작업 인원</th>
           <td>1인 개발</td>
           <th>기간</th>
           <td>2025.12 ~ 2026.02</td>
         </tr>
-        <tr>
-          <th>개발 환경</th>
-          <td colspan="3">
-            Unreal Engine 5, C++, Blueprint, Visual Studio
-          </td>
-        </tr>
+
         <tr>
           <th>주요 기능</th>
           <td colspan="3">
-            • GAS를 활용한 무기 능력 시스템<br>
-            • Winsock 기반 서버 및 MySQL 연동 로그인 인증<br>
-            • 온라인 멀티플레이 구현
+            • <strong>GAS(Gameplay Ability System)</strong>를 활용한 데이터 기반 무기 시스템 및 능력(Ability) 설계<br>
+            • <strong>DataTable</strong>을 이용한 로그라이크식 무기 업그레이드 로직 (레벨업 시 무기 후보 무작위 선정 및 강화)<br>
+            • <strong>Flatbuffers</strong>와 <strong>Winsock</strong>을 활용한 고효율 패킷 직렬화 및 서버-DB 인증 연동 구현<br>
+            • <strong>MySQL</strong> 쿼리 조회를 통한 실시간 유저 랭킹 및 인벤토리 데이터 관리 시스템 구축
           </td>
         </tr>
         <tr>
@@ -77,12 +81,7 @@
             <a href="https://youtube.com" target="_blank">프로젝트 영상 보기</a>
           </td>
         </tr>
-        <tr>
-          <th>이미지(GIF)</th>
-          <td colspan="3">
-            <img src="images/project.gif" alt="project gif">
-          </td>
-        </tr>
+
       </table>
     </section>
 
