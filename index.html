@@ -16,7 +16,7 @@
 <body>
   <main class="container">
     <section class="intro">
-      <h1>안녕하세요지원자 원유찬입니다.</h1>
+      <h1>안녕하세요. 지원자 원유찬입니다.</h1>
       <p>Junior Game Programmer</p>
     </section>
 
@@ -82,6 +82,32 @@
           </td>
         </tr>
 
+      </table>
+
+      <table class="project-table">
+        <tr>
+          <th colspan="4" style="background: #f1f5f9; text-align: center; border-top: 2px solid var(--primary-color);">
+            Technical Deep Dive: 서버 아키텍처 (Server Architecture)
+          </th>
+        </tr>
+        <tr>
+          <th>서버 아키텍처도</th>
+          <td colspan="3">
+            <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+              style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
+          </td>
+        </tr>
+        <tr>
+          <th>Backend 핵심 로직</th>
+          <td colspan="3">
+            • <strong>분산 서버 구조</strong>: Web Server(인증), Gateway Server(중계), Data Server(저장)로 역할을 분리하여 처리 성능 및 유지보수성
+            향상<br>
+            • <strong>FlatBuffers 직렬화</strong>: Winsock 기반 통신 시 고성능 직렬화 라이브러리인 FlatBuffers를 적용하여 패킷 크기 최적화 및 파싱 속도
+            극대화<br>
+            • <strong>비동기 소켓 통신</strong>: 고가용성 서버 구축을 위해 다중 스레드 기반의 비동기 소켓 통신 환경 구축<br>
+            • <strong>데이터베이스 설계</strong>: MySQL을 활용한 정적 유저 데이터 및 동적 게임 로그 데이터의 효율적인 인덱싱 및 관리 전략 수립
+          </td>
+        </tr>
       </table>
     </section>
 
