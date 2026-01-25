@@ -15,8 +15,12 @@ collections:
         label: "Website Content"
         file: "data/site_content.json"
         fields:
-          - { label: "Intro Title", name: "intro.title", widget: "string" }
-          - { label: "Intro Subtitle", name: "intro.subtitle", widget: "string" }
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
           - label: "About Me"
             name: "about"
             widget: "object"
