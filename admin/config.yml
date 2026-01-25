@@ -14,6 +14,8 @@ collections:
       - name: "site_data"
         label: "Website Content"
         file: "data/site_content.json"
+        extension: "json"
+        format: "json"
         fields:
           - label: "Intro"
             name: "intro"
