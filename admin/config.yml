@@ -1,7 +1,5 @@
 backend:
-  name: github
-  repo: Veduy/Veduy.github.io
-  branch: main # 또는 사용 중인 기본 브랜치 이름
+  name: git-gateway
 
 media_folder: "images" # 이미지가 저장될 경로
 public_folder: "/images"
