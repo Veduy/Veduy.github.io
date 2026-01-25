@@ -5,12 +5,55 @@ media_folder: "images" # 이미지가 저장될 경로
 public_folder: "/images"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "content"
+    label: "Site Content"
+    delete: false # 파일 하나를 관리하므로 삭제 방지
+    editor:
+      preview: false
     files:
-      - label: "Home Page"
-        name: "home"
-        file: "index.html"
+      - name: "site_data"
+        label: "Website Content"
+        file: "data/site_content.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro Title", name: "intro.title", widget: "string" }
+          - { label: "Intro Subtitle", name: "intro.subtitle", widget: "string" }
+          - label: "About Me"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Skills"
+            name: "skills"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Skill List", name: "list", widget: "list", field: { label: "Skill", name: "skill", widget: "string" } }
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Image Path", name: "image", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Team", name: "team", widget: "string" }
+              - { label: "Period", name: "period", widget: "string" }
+              - { label: "Features", name: "features", widget: "text" }
+              - { label: "Video Link", name: "video_link", widget: "string" }
+          - label: "Technical Deep Dive"
+            name: "technical_deep_dive"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Goal", name: "goal", widget: "text" }
+              - { label: "Architecture Image", name: "architecture_image", widget: "string" }
+              - { label: "Roles", name: "roles", widget: "text" }
+              - { label: "Communication", name: "communication", widget: "text" }
+              - { label: "Async & DB", name: "async_db", widget: "text" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "GitHub", name: "github", widget: "string" }

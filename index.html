@@ -17,20 +17,22 @@
 <body>
   <main class="container">
     <section class="intro">
-      <h1>안녕하세요. 지원자 원유찬입니다.</h1>
-      <p>Junior Game Programmer</p>
+      <h1 id="intro-title">안녕하세요. 지원자 원유찬입니다.</h1>
+      <p id="intro-subtitle">Junior Game Programmer</p>
     </section>
 
     <section id="about">
-      <h2>About Me</h2>
-      <p>어떤 개발자가 되고 싶으신가요?</p>
-      <p>게임을 좋아하게 된 특별한 계기가 있나요?</p>
-      <p>게임 개발자로서의 비전과 포부를 들려주세요.</p>
+      <h2 id="about-title">About Me</h2>
+      <div id="about-description">
+        <p>어떤 개발자가 되고 싶으신가요?</p>
+        <p>게임을 좋아하게 된 특별한 계기가 있나요?</p>
+        <p>게임 개발자로서의 비전과 포부를 들려주세요.</p>
+      </div>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <ul>
+      <h2 id="skills-title">Skills</h2>
+      <ul id="skills-list">
         <li>C++</li>
         <li>Winsock (Socket Programming)</li>
         <li>Unreal Engine 5</li>
@@ -40,101 +42,22 @@
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <table class="project-table">
-        <tr>
-          <th>프로젝트명</th>
-          <td colspan="3"><strong>Megabonky</strong></td>
-        </tr>
-        <tr>
-          <th>이미지(GIF)</th>
-          <td colspan="3">
-            <img src="images/megabonk_gameplay.gif" alt="MegaBonk Gameplay GIF"
-              style="max-width: 100%; border-radius: 8px;">
-          </td>
-        </tr>
-        <tr>
-          <th>프로젝트 개요</th>
-          <td colspan="3">
-            실무급 서버-클라이언트 아키텍처에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.<br>
-            전용 서버(Dedicated Server) 기반의 온라인 멀티플레이 환경에서 게임 루프 동기화와 데이터 무결성 보장을 최우선 과제로 삼아 개발되었습니다.
-          </td>
-        </tr>
-        <tr>
-          <th>작업 인원</th>
-          <td>1인 개발</td>
-          <th>기간</th>
-          <td>2025.12 ~ 2026.02</td>
-        </tr>
+      <h2 id="projects-title">Projects</h2>
+      <div id="projects-container">
+        <!-- Projects will be rendered here -->
+      </div>
 
-        <tr>
-          <th>주요 기능</th>
-          <td colspan="3">
-            • <strong>GAS(Gameplay Ability System)</strong>를 활용한 데이터 기반 무기 시스템 및 능력(Ability) 설계<br>
-            • <strong>DataTable</strong>을 이용한 로그라이크식 무기 업그레이드 로직 (레벨업 시 무기 후보 무작위 선정 및 강화)<br>
-            • <strong>Flatbuffers</strong>와 <strong>Winsock</strong>을 활용한 고효율 패킷 직렬화 및 서버-DB 인증 연동 구현<br>
-            • <strong>MySQL</strong> 쿼리 조회를 통한 실시간 유저 랭킹 및 인벤토리 데이터 관리 시스템 구축
-          </td>
-        </tr>
-        <tr>
-          <th>YouTube</th>
-          <td colspan="3">
-            <a href="https://youtube.com" target="_blank">프로젝트 영상 보기</a>
-          </td>
-        </tr>
-
-      </table>
-
-      <table class="project-table">
-        <tr>
-          <th colspan="4" style="background: #f1f5f9; text-align: center; border-top: 2px solid var(--primary-color);">
-            Technical Deep Dive: 서버 아키텍처 및 통신 구조 (Implementation Details)
-          </th>
-        </tr>
-        <tr>
-          <th>구현 목표</th>
-          <td colspan="3">
-            Web Server와 Game Server(Gateway)가 서로 다른 프로세스로 동작하며 소켓 통신을 통해 상태를 주고받는 구조를 이해하고 직접 구현하는 것을 목표.
-          </td>
-        </tr>
-        <tr>
-          <th>서버 아키텍처도</th>
-          <td colspan="3">
-            <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
-              style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
-          </td>
-        </tr>
-        <tr>
-          <th>서버 역할 분리<br>(Role-based)</th>
-          <td colspan="3">
-            단일 서버 구조가 아닌, 기능별로 프로세스를 분리하여 서버 간 역할 분리와 통신 흐름을 설계.<br>
-            • <strong>Web Server</strong>: 유저 인증 및 데이터베이스 연동 관리. 클라이언트와 HTTP(JSON) 기반 통신 수행<br>
-            • <strong>Gateway Server</strong>: 실시간 접속 및 대기 상태 관리. 특정 조건(접속자 수 등) 충족 시 Web Server에 알림 전달
-          </td>
-        </tr>
-        <tr>
-          <th>서버 간 통신</th>
-          <td colspan="3">
-            • <strong>Winsock 기반 TCP 통신</strong>: Gateway ↔ Web Server 간 직접 소켓 통신 구현<br>
-            • <strong>FlatBuffers 최적화</strong>: 서버 간 통신 패킷 최적화를 위해 JSON 대신 바이너리 기반의 FlatBuffers를 적용하여 패킷 크기 감소 및 역직렬화 속도
-            개선
-          </td>
-        </tr>
-        <tr>
-          <th>비동기 처리 & DB</th>
-          <td colspan="3">
-            • <strong>Multi-threaded Socket</strong>: 다중 클라이언트 접속 처리를 위해 멀티 스레드 기반의 비동기 소켓 구조를 설계하여 블로킹 최소화 고려<br>
-            • <strong>MySQL 설계</strong>: 유저 정보 및 게임 로그 관리를 위한 기초 DB 설계 및 성능을 고려한 주요 컬럼 인덱스 적용
-          </td>
-        </tr>
-      </table>
+      <div id="technical-deep-dive-container">
+        <!-- Technical Deep Dive will be rendered here -->
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p><strong>Email:</strong> <a href="mailto:wonyu1997@naver.com">wonyu1997@naver.com</a></p>
-      <p><strong>Phone:</strong> 010-6429-xxxx</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Veduy" target="_blank">github.com/Veduy</a></p>
+      <h2 id="contact-title">Contact</h2>
+      <p><strong>Email:</strong> <a id="contact-email" href="mailto:wonyu1997@naver.com">wonyu1997@naver.com</a></p>
+      <p><strong>Phone:</strong> <span id="contact-phone">010-6429-xxxx</span></p>
+      <p><strong>GitHub:</strong> <a id="contact-github" href="https://github.com/Veduy"
+          target="_blank">github.com/Veduy</a></p>
     </section>
 
     <section class="signup-section">
@@ -146,7 +69,7 @@
           <input type="text" id="user-id" name="userId" placeholder="아이디를 입력하세요" required>
         </div>
         <div class="form-group">
-          <label for="user-pw">비밀번호</label>
+          <label for="user-id">비밀번호</label>
           <input type="password" id="user-pw" name="password" placeholder="비밀번호를 입력하세요" required>
         </div>
         <button type="submit" class="signup-button">가입 / 접속</button>
@@ -156,6 +79,117 @@
   </main>
 
   <script>
+    async function loadContent() {
+      try {
+        const response = await fetch('data/site_content.json');
+        const data = await response.json();
+
+        // Intro
+        document.getElementById('intro-title').textContent = data.intro.title;
+        document.getElementById('intro-subtitle').textContent = data.intro.subtitle;
+
+        // About
+        document.getElementById('about-title').textContent = data.about.title;
+        const aboutDesc = document.getElementById('about-description');
+        aboutDesc.innerHTML = data.about.description.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+
+        // Skills
+        document.getElementById('skills-title').textContent = data.skills.title;
+        const skillsList = document.getElementById('skills-list');
+        skillsList.innerHTML = data.skills.list.map(s => `<li>${s}</li>`).join('');
+
+        // Projects
+        const projectsContainer = document.getElementById('projects-container');
+        projectsContainer.innerHTML = data.projects.map(project => `
+          <table class="project-table">
+            <tr>
+              <th>프로젝트명</th>
+              <td colspan="3"><strong>${project.name}</strong></td>
+            </tr>
+            <tr>
+              <th>이미지(GIF)</th>
+              <td colspan="3">
+                <img src="${project.image}" alt="${project.name} Gameplay GIF"
+                  style="max-width: 100%; border-radius: 8px;">
+              </td>
+            </tr>
+            <tr>
+              <th>프로젝트 개요</th>
+              <td colspan="3">${project.summary.replace(/\n/g, '<br>')}</td>
+            </tr>
+            <tr>
+              <th>작업 인원</th>
+              <td>${project.team}</td>
+              <th>기간</th>
+              <td>${project.period}</td>
+            </tr>
+            <tr>
+              <th>주요 기능</th>
+              <td colspan="3">${project.features.replace(/\n/g, '<br>')}</td>
+            </tr>
+            <tr>
+              <th>YouTube</th>
+              <td colspan="3">
+                <a href="${project.video_link}" target="_blank">프로젝트 영상 보기</a>
+              </td>
+            </tr>
+          </table>
+        `).join('');
+
+        // Technical Deep Dive
+        const deepDive = data.technical_deep_dive;
+        const deepDiveContainer = document.getElementById('technical-deep-dive-container');
+        deepDiveContainer.innerHTML = `
+          <table class="project-table">
+            <tr>
+              <th colspan="4" style="background: #f1f5f9; text-align: center; border-top: 2px solid var(--primary-color);">
+                ${deepDive.title}
+              </th>
+            </tr>
+            <tr>
+              <th>구현 목표</th>
+              <td colspan="3">${deepDive.goal}</td>
+            </tr>
+            <tr>
+              <th>서버 아키텍처도</th>
+              <td colspan="3">
+                <img src="${deepDive.architecture_image}" alt="Server Architecture Blueprint"
+                  style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
+              </td>
+            </tr>
+            <tr>
+              <th>서버 역할 분리<br>(Role-based)</th>
+              <td colspan="3">${deepDive.roles.replace(/\n/g, '<br>')}</td>
+            </tr>
+            <tr>
+              <th>서버 간 통신</th>
+              <td colspan="3">${deepDive.communication.replace(/\n/g, '<br>')}</td>
+            </tr>
+            <tr>
+              <th>비동기 처리 & DB</th>
+              <td colspan="3">${deepDive.async_db.replace(/\n/g, '<br>')}</td>
+            </tr>
+          </table>
+        `;
+
+        // Contact
+        document.getElementById('contact-title').textContent = data.contact.title || 'Contact';
+        const emailEl = document.getElementById('contact-email');
+        emailEl.href = `mailto:${data.contact.email}`;
+        emailEl.textContent = data.contact.email;
+        document.getElementById('contact-phone').textContent = data.contact.phone;
+        const githubEl = document.getElementById('contact-github');
+        githubEl.href = data.contact.github;
+        githubEl.textContent = data.contact.github.replace('https://', '');
+
+      } catch (error) {
+        console.error('Error loading content:', error);
+      }
+    }
+
+    // Load content on startup
+    loadContent();
+
     document.getElementById('signup-form').addEventListener('submit', async function (e) {
       e.preventDefault();
 
