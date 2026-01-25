@@ -66,7 +66,7 @@
   <script>
     async function loadContent() {
       try {
-        const response = await fetch('data/site_content.json');
+        const response = await fetch(`data/site_content.json?t=${new Date().getTime()}`);
         const data = await response.json();
 
         // Intro
