@@ -85,18 +85,18 @@
         const data = await response.json();
 
         // Intro
-        document.getElementById('intro-title').textContent = data.intro.title;
-        document.getElementById('intro-subtitle').textContent = data.intro.subtitle;
+        document.getElementById('intro-title').textContent = data.intro_title;
+        document.getElementById('intro-subtitle').textContent = data.intro_subtitle;
 
         // About
-        document.getElementById('about-title').textContent = data.about.title;
+        document.getElementById('about-title').textContent = data.about_title;
         const aboutDesc = document.getElementById('about-description');
-        aboutDesc.innerHTML = data.about.description.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+        aboutDesc.innerHTML = data.about_description.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
 
         // Skills
-        document.getElementById('skills-title').textContent = data.skills.title;
+        document.getElementById('skills-title').textContent = data.skills_title;
         const skillsList = document.getElementById('skills-list');
-        skillsList.innerHTML = data.skills.list.map(s => `<li>${s}</li>`).join('');
+        skillsList.innerHTML = data.skills_list.map(s => `<li>${s}</li>`).join('');
 
         // Projects
         const projectsContainer = document.getElementById('projects-container');
@@ -137,50 +137,49 @@
         `).join('');
 
         // Technical Deep Dive
-        const deepDive = data.technical_deep_dive;
         const deepDiveContainer = document.getElementById('technical-deep-dive-container');
         deepDiveContainer.innerHTML = `
           <table class="project-table">
             <tr>
               <th colspan="4" style="background: #f1f5f9; text-align: center; border-top: 2px solid var(--primary-color);">
-                ${deepDive.title}
+                ${data.tech_dive_title}
               </th>
             </tr>
             <tr>
               <th>구현 목표</th>
-              <td colspan="3">${deepDive.goal}</td>
+              <td colspan="3">${data.tech_dive_goal}</td>
             </tr>
             <tr>
               <th>서버 아키텍처도</th>
               <td colspan="3">
-                <img src="${deepDive.architecture_image}" alt="Server Architecture Blueprint"
+                <img src="${data.tech_dive_arch_img}" alt="Server Architecture Blueprint"
                   style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
               </td>
             </tr>
             <tr>
               <th>서버 역할 분리<br>(Role-based)</th>
-              <td colspan="3">${deepDive.roles.replace(/\n/g, '<br>')}</td>
+              <td colspan="3">${data.tech_dive_roles.replace(/\n/g, '<br>')}</td>
             </tr>
             <tr>
               <th>서버 간 통신</th>
-              <td colspan="3">${deepDive.communication.replace(/\n/g, '<br>')}</td>
+              <td colspan="3">${data.tech_dive_comm.replace(/\n/g, '<br>')}</td>
             </tr>
             <tr>
               <th>비동기 처리 & DB</th>
-              <td colspan="3">${deepDive.async_db.replace(/\n/g, '<br>')}</td>
+              <td colspan="3">${data.tech_dive_async_db.replace(/\n/g, '<br>')}</td>
             </tr>
           </table>
         `;
 
         // Contact
-        document.getElementById('contact-title').textContent = data.contact.title || 'Contact';
+        document.getElementById('contact-title').textContent = data.contact_title || 'Contact';
         const emailEl = document.getElementById('contact-email');
-        emailEl.href = `mailto:${data.contact.email}`;
-        emailEl.textContent = data.contact.email;
-        document.getElementById('contact-phone').textContent = data.contact.phone;
+        emailEl.href = `mailto:${data.contact_email}`;
+        emailEl.textContent = data.contact_email;
+        document.getElementById('contact-phone').textContent = data.contact_phone;
         const githubEl = document.getElementById('contact-github');
-        githubEl.href = data.contact.github;
-        githubEl.textContent = data.contact.github.replace('https://', '');
+        githubEl.href = data.contact_github;
+        githubEl.textContent = data.contact_github.replace('https://', '');
 
       } catch (error) {
         console.error('Error loading content:', error);

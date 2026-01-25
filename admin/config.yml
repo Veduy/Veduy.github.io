@@ -1,13 +1,13 @@
 backend:
   name: git-gateway
 
-media_folder: "images" # 이미지가 저장될 경로
+media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "content"
     label: "Site Content"
-    delete: false # 파일 하나를 관리하므로 삭제 방지
+    delete: false
     editor:
       preview: false
     files:
@@ -17,24 +17,12 @@ collections:
         extension: "json"
         format: "json"
         fields:
-          - label: "Intro"
-            name: "intro"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - label: "About Me"
-            name: "about"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-          - label: "Skills"
-            name: "skills"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Skill List", name: "list", widget: "list", field: { label: "Skill", name: "skill", widget: "string" } }
+          - { label: "Intro Title", name: "intro_title", widget: "string" }
+          - { label: "Intro Subtitle", name: "intro_subtitle", widget: "string" }
+          - { label: "About Title", name: "about_title", widget: "string" }
+          - { label: "About Description", name: "about_description", widget: "text" }
+          - { label: "Skills Title", name: "skills_title", widget: "string" }
+          - { label: "Skill List", name: "skills_list", widget: "list", field: { label: "Skill", name: "skill", widget: "string" } }
           - label: "Projects"
             name: "projects"
             widget: "list"
@@ -46,20 +34,12 @@ collections:
               - { label: "Period", name: "period", widget: "string" }
               - { label: "Features", name: "features", widget: "text" }
               - { label: "Video Link", name: "video_link", widget: "string" }
-          - label: "Technical Deep Dive"
-            name: "technical_deep_dive"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Goal", name: "goal", widget: "text" }
-              - { label: "Architecture Image", name: "architecture_image", widget: "string" }
-              - { label: "Roles", name: "roles", widget: "text" }
-              - { label: "Communication", name: "communication", widget: "text" }
-              - { label: "Async & DB", name: "async_db", widget: "text" }
-          - label: "Contact"
-            name: "contact"
-            widget: "object"
-            fields:
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Phone", name: "phone", widget: "string" }
-              - { label: "GitHub", name: "github", widget: "string" }
+          - { label: "Deep Dive Title", name: "tech_dive_title", widget: "string" }
+          - { label: "Goal", name: "tech_dive_goal", widget: "text" }
+          - { label: "Arch Image", name: "tech_dive_arch_img", widget: "string" }
+          - { label: "Roles", name: "tech_dive_roles", widget: "text" }
+          - { label: "Communication", name: "tech_dive_comm", widget: "text" }
+          - { label: "Async & DB", name: "tech_dive_async_db", widget: "text" }
+          - { label: "Contact Email", name: "contact_email", widget: "string" }
+          - { label: "Contact Phone", name: "contact_phone", widget: "string" }
+          - { label: "Contact GitHub", name: "contact_github", widget: "string" }
