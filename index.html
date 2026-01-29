@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <title>이력서-원유찬 | Junior Game Programmer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="style.css" />
@@ -87,16 +90,17 @@
       <div class="tech-summary-container">
         <!-- 1. Game Mechanics & GAS -->
         <div class="tech-summary-item">
-          <h3>Gameplay Ability System</h3>
+          <h3>게임 어빌리티 시스템</h3>
           <ul>
             <li><strong>객체별 Attribute 분리 설계</strong>:<br> <span class="desc"></span>캐릭터, 무기(액터), 몬스터별 Attribute를 독립적으로
-              관리하는 구조로 설계했습니다.</span></li>
-            <li><strong>데미지 계산</strong>:<br> <span class="desc"><code>ExecutionCalculationClass</code>를 사용하여 캐릭터 스탯과 무기
-                성능이 결합된 데미지 공식을 구현했습니다.</span></li>
-            <li><strong>서버 중심 어빌리티 제어</strong>:<br> <span class="desc">캐릭터 보유 무기의 어빌리티를 서버 타이머로 주기적 활성화(Activate)하여
-                멀티플레이 동기화를 보장합니다.</span></li>
-            <li><strong>무기 강화 시스템</strong>:<br> <span class="desc">GameplayEffect를 사용하여 실시간으로 무기 Attribute를 조정하는 강화 로직을
-                구축했습니다.</span></li>
+              관리하는 구조로 설계.</span></li>
+            <li><strong>데미지 계산</strong>:<br> <span class="desc"><code>Execution Calculation</code> 사용하여 캐릭터 스탯과 무기 스텟이
+                결합된 데미지 공식을 구현했습니다.</span></li>
+            <li><strong>서버 중심 어빌리티 제어</strong>:<br> <span class="desc">캐릭터가 보유한 모든 무기의 어빌리티를 서버의 PlayerController에서 타이머로
+                주기적 활성화(Activate)하여
+                멀티플레이 동기화를 보장.</span></li>
+            <li><strong>능력 강화 시스템</strong>:<br> <span class="desc">GameplayEffect를 사용하여 캐릭터, 무기 Attribute를 조정.</span>
+            </li>
           </ul>
         </div>
 
