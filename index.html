@@ -89,10 +89,14 @@
         <div class="tech-summary-item">
           <h3>Gameplay Ability System</h3>
           <ul>
-            <li><strong>객체별 Attribute 분리 설계</strong>:<br> <span class="desc"></span>캐릭터, 무기(액터), 몬스터별 Attribute를 독립적으로 관리하는 구조로 설계했습니다.</span></li>
-            <li><strong>데미지 계산</strong>:<br> <span class="desc"><code>ExecutionCalculationClass</code>를 사용하여 캐릭터 스탯과 무기 성능이 결합된 데미지 공식을 구현했습니다.</span></li>
-            <li><strong>서버 중심 어빌리티 제어</strong>:<br> <span class="desc">캐릭터 보유 무기의 어빌리티를 서버 타이머로 주기적 활성화(Activate)하여 멀티플레이 동기화를 보장합니다.</span></li>
-            <li><strong>무기 강화 시스템</strong>:<br> <span class="desc">GameplayEffect를 사용하여 실시간으로 무기 Attribute를 조정하는 강화 로직을 구축했습니다.</span></li>
+            <li><strong>객체별 Attribute 분리 설계</strong>:<br> <span class="desc"></span>캐릭터, 무기(액터), 몬스터별 Attribute를 독립적으로
+              관리하는 구조로 설계했습니다.</span></li>
+            <li><strong>데미지 계산</strong>:<br> <span class="desc"><code>ExecutionCalculationClass</code>를 사용하여 캐릭터 스탯과 무기
+                성능이 결합된 데미지 공식을 구현했습니다.</span></li>
+            <li><strong>서버 중심 어빌리티 제어</strong>:<br> <span class="desc">캐릭터 보유 무기의 어빌리티를 서버 타이머로 주기적 활성화(Activate)하여
+                멀티플레이 동기화를 보장합니다.</span></li>
+            <li><strong>무기 강화 시스템</strong>:<br> <span class="desc">GameplayEffect를 사용하여 실시간으로 무기 Attribute를 조정하는 강화 로직을
+                구축했습니다.</span></li>
           </ul>
         </div>
 
@@ -100,21 +104,28 @@
         <div class="tech-summary-item">
           <h3>동적 난이도 조절 및 데이터 기반 시스템</h3>
           <ul>
-            <li><strong>로그 곡선 기반 몬스터 스폰</strong>:<br> <span class="desc">게임 시간에 따라 몬스터 스폰 마릿수를 조절하여, 난이도 조절을 했습니다.</span></li>
-            <li><strong>가변적 몬스터 스케일링</strong>:<br> <span class="desc"><code>CurveTable</code>을 참조하여 시간에 따라 몬스터의 HP와 ATK가 강화되도록 설계했습니다.</span></li>
-            <li><strong>데이터 테이블 기반 무기 업그레이드 시스템</strong>:<br> <span class="desc">데이터 테이블을 활용한 무기 뽑기 및 강화 시스템을 구현했습니다.</span></li>
+            <li><strong>로그 곡선 기반 몬스터 스폰</strong>:<br> <span class="desc">게임 시간에 따라 몬스터 스폰 마릿수를 조절하여, 난이도 조절을
+                했습니다.</span></li>
+            <li><strong>가변적 몬스터 스케일링</strong>:<br> <span class="desc"><code>CurveTable</code>을 참조하여 시간에 따라 몬스터의 HP와 ATK가
+                강화되도록 설계했습니다.</span></li>
+            <li><strong>데이터 테이블 기반 무기 업그레이드 시스템</strong>:<br> <span class="desc">데이터 테이블을 활용한 무기 뽑기 및 강화 시스템을
+                구현했습니다.</span></li>
           </ul>
         </div>
 
         <!-- 3. Server Architecture & Persistence -->
         <div class="tech-summary-item">
           <h3>서버 구조 및 데이터 영속성</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 효율적인 통신을 위해 프로세스 분리형 아키텍처를 채택했습니다.</p>
+          <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 효율적인 통신을 위해 프로세스 분리형 아키텍처를
+            채택했습니다.</p>
 
           <ul>
-            <li><strong>분산 서버 구조(Role-based)</strong>:<br> <span class="desc">Web Server(유저 인증/DB)와 Gateway Server(실시간 세션)를 분리하여 운영 효율을 높였습니다.</span></li>
-            <li><strong>FlatBuffers 패킷 직렬화</strong>:<br> <span class="desc">Winsock 기반 TCP 통신 시 바이너리 포맷을 적용하여 JSON 대비 패킷 크기 감소 및 처리 속도를 개선했습니다.</span></li>
-            <li><strong>데이터 영속성 보장</strong>:<br> <span class="desc">로컬 파일 저장 후 DB 동기화 방식을 통해 유저의 게임 기록 및 무기 해금 데이터를 안정적으로 관리합니다.</span></li>
+            <li><strong>분산 서버 구조(Role-based)</strong>:<br> <span class="desc">Web Server(유저 인증/DB)와 Gateway Server(실시간
+                세션)를 분리하여 운영 효율을 높였습니다.</span></li>
+            <li><strong>FlatBuffers 패킷 직렬화</strong>:<br> <span class="desc">Winsock 기반 TCP 통신 시 바이너리 포맷을 적용하여 JSON 대비 패킷
+                크기 감소 및 처리 속도를 개선했습니다.</span></li>
+            <li><strong>데이터 영속성 보장</strong>:<br> <span class="desc">로컬 파일 저장 후 DB 동기화 방식을 통해 유저의 게임 기록 및 무기 해금 데이터를
+                안정적으로 관리합니다.</span></li>
           </ul>
 
           <div class="architecture-box">
@@ -128,8 +139,10 @@
         <div class="tech-summary-item">
           <h3>지형 적응형 AI 및 목표 시스템</h3>
           <ul>
-            <li><strong>레이트레이싱 기반 이동 로직</strong>:<br> <span class="desc">실시간 레이트레이싱을 통해 전방 장애물을 감지하고 환경에 맞춰 타고 올라가는 능동적 이동을 구현했습니다.</span></li>
-            <li><strong>업적 기반 해금 시스템</strong>:<br> <span class="desc">누적 몬스터 처치 수에 따라 캐릭터 및 무기를 해금하는 게임 루프를 완성했습니다.</span></li>
+            <li><strong>레이트레이싱 기반 이동 로직</strong>:<br> <span class="desc">실시간 레이트레이싱을 통해 전방 장애물을 감지하고 환경에 맞춰 타고 올라가는 능동적
+                이동을 구현했습니다.</span></li>
+            <li><strong>업적 기반 해금 시스템</strong>:<br> <span class="desc">누적 몬스터 처치 수에 따라 캐릭터 및 무기를 해금하는 게임 루프를
+                완성했습니다.</span></li>
           </ul>
         </div>
       </div>
