@@ -82,71 +82,98 @@
 
       </table>
 
+
       <h3
         style="margin-top: 3.5rem; margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-main); font-weight: 700;">
         Technical Implementation
       </h3>
 
+
+
+      <div class="tech-summary-item">
+        <h3>서버 아키텍처 및 통신 최적화</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 데이터 무결성을 위해 역할 기반 프로세스 분리 및 전용 통신
+          프로토콜을 설계했습니다.</p>
+        <ul>
+          <li><strong>역할 기반 멀티 서버 구조</strong>:<br>
+            <span class="desc">언리얼 클라이언트, 실시간 게임 서버, 웹 서버, 데이터베이스가 명확히 분리되어 각각 독립적으로 부하를 처리하며 시스템의 안정성을 보장합니다.</span>
+          </li>
+          <li><strong>목적별 통신 프로토콜 분리</strong>:<br>
+            <span class="desc">로그인 및 계정 처리는 RESTful 기반의 HTTP(S) 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
+              Replication)를 사용하여 최적화했습니다.</span>
+          </li>
+          <li><strong>중앙 집중식 데이터베이스 정책</strong>:<br>
+            <span class="desc">보안과 성능을 위해 웹 서버만 DB에 직접 접근하며, 게임 서버는 웹 서버를 통해 필요한 플레이어 데이터를 비동기적으로 로드 및 저장합니다.</span>
+          </li>
+          <li><strong>FlatBuffers 패킷 최적화</strong>:<br>
+            <span class="desc">Winsock 기반 TCP 통신 시 FlatBuffers 바이너리 직렬화를 적용하여 JSON 대비 패킷 크기를 줄이고 통신 처리 효율을
+              극대화했습니다.</span>
+          </li>
+          <li><strong>결함 방지 및 비동기 처리</strong>:<br>
+            <span class="desc">모든 서버 간 통신은 비동기 방식으로 설계하여 프레임 지연을 최소화하고, 프로세스 분리를 통해 유지보수성과 확장성을 확보했습니다.</span>
+          </li>
+        </ul>
+
+        <div class="architecture-box">
+          <h4>서버 통신 구조도 (Architecture)</h4>
+          <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+            style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+      </div>
+
       <div class="tech-summary-container">
-        <!-- 1. Game Mechanics & GAS -->
+        <!-- GAS & Specialized Systems -->
         <div class="tech-summary-item">
-          <h3>게임 어빌리티 시스템</h3>
+          <h3>게임 어빌리티 시스템 (GAS) 및 매커니즘 고도화</h3>
           <ul>
-            <li><strong>객체별 Attribute 분리 설계</strong>:<br> <span class="desc"></span>캐릭터, 무기(액터), 몬스터별 Attribute를 독립적으로
-              관리하는 구조로 설계.</span></li>
-            <li><strong>데미지 계산</strong>:<br> <span class="desc"></span>Execution Calculation 사용하여 캐릭터 스탯과 무기 스텟이 결합된 데미지
-              공식을 구현.</span></li>
-            <li><strong>서버 중심 어빌리티 제어</strong>:<br> <span class="desc"></span>캐릭터가 보유한 모든 무기의 어빌리티를 서버의
-              PlayerController에서 타이머로 주기적 활성화(Activate)하여 멀티플레이 동기화를 보장.</span></li>
-            <li><strong>능력 강화 시스템</strong>:<br> <span class="desc"></span>GameplayEffect를 사용하여 캐릭터, 무기 Attribute를
-              조정.</span>
+            <li><strong>기능적 관심사 분리에 기반한 Attribute Set 설계</strong>:<br>
+              <span class="desc">캐릭터, 무기(액터), 몬스터의 능력치 요구 사항을 분석하여 각각 독립적인 <code>Attribute Set</code> 아키텍처를 구축, 데이터의
+                무결성과 확장성을 확보했습니다.</span>
+            </li>
+            <li><strong>복합 데미지 산출을 위한 Execution Calculation 파이프라인</strong>:<br>
+              <span class="desc">단순 수치 합산을 넘어 <code>ExecutionCalculation</code> 클래스를 활용하여 캐릭터의 스탯과 무기의 고유 속성이 결합된 정교한
+                데미지 공식을 구현했습니다.</span>
+            </li>
+            <li><strong>Authoritative Server 기반의 어빌리티 생명주기 관리</strong>:<br>
+              <span class="desc">클라이언트 변조 방지를 위해 모든 어빌리티의 활성화(Activate) 및 효과 적용을 서버 단의 <code>PlayerController</code> 타이머
+                시스템으로 원격 제어하여 동기화 신뢰성을 극대화했습니다.</span>
+            </li>
+            <li><strong>GameplayEffect를 활용한 동적 속성 조작</strong>:<br>
+              <span class="desc">무기 강화 및 캐릭터 성장 시스템에 <code>GameplayEffect</code>를 전면 적용하여, 런타임 중 실시간으로 Attribute 값을 정밀하게
+                조정하는 모듈형 강화 시스템을 구현했습니다.</span>
             </li>
           </ul>
         </div>
 
-        <!-- 2. Dynamic Spawning & Data -->
+
+        <!-- 2. Data-Driven Systems & Balancing -->
         <div class="tech-summary-item">
-          <h3>동적 난이도 조절 및 데이터 기반 시스템</h3>
+          <h3>데이터 기반 밸런싱 및 시스템 확장성</h3>
           <ul>
-            <li><strong>로그 곡선 기반 몬스터 스폰</strong>:<br> <span class="desc"></span>게임 시간에 따라 몬스터 스폰 마릿수를 조절하여, 난이도 조절을
-              했습니다.</span></li>
-            <li><strong>가변적 몬스터 스케일링</strong>:<br> <span class="desc"></span>CurveTable을 참조하여 시간에 따라 몬스터의 HP와 ATK가 강화되도록
-              설계했습니다.</span></li>
-            <li><strong>데이터 테이블 기반 무기 업그레이드 시스템</strong>:<br> <span class="desc"></span>데이터 테이블을 활용한 무기 뽑기 및 강화 시스템을
-              구현했습니다.</span></li>
+            <li><strong>Data-Driven 설계 및 유지보수성 확보</strong>:<br>
+              <span class="desc">하드코딩을 배제하고 <code>DataTable</code>과 <code>CurveTable</code>을 활용하여 무기 속성, 강화 수치, 몬스터 스텟 등
+                게임의 핵심 밸런스 데이터를 데이터 중심으로 관리합니다.</span>
+            </li>
+            <li><strong>데이터 테이블 기반 랜덤 아이템 시스템</strong>:<br>
+              <span class="desc">아이템 리스트를 <code>DataTable</code>로 분리 관리하여 시스템의 독립성을 높였으며, 정의된 데이터 셋 내에서 무기를 랜덤 추첨(Random
+                Draw)하고 관련 스텟을 즉각적으로 바인딩하는 로직을 구축했습니다.</span>
+            </li>
           </ul>
         </div>
 
-        <!-- 3. Server Architecture & Persistence -->
+        <!-- 3. Procedural Difficulty & Spawning -->
         <div class="tech-summary-item">
-          <h3>서버 구조 및 데이터 영속성</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 효율적인 통신을 위해 프로세스 분리형 아키텍처를
-            채택했습니다.</p>
-
+          <h3>수학적 모델링을 활용한 절차적 난이도 조절</h3>
           <ul>
-            <li><strong>분산 서버 구조(Role-based)</strong>:<br> <span class="desc"></span>Web Server(유저 인증/DB)와 Gateway
-              Server(실시간세션)를 분리하여 운영 효율을 높였습니다.</span></li>
-            <li><strong>FlatBuffers 패킷 직렬화</strong>:<br> <span class="desc"></span>Winsock 기반 TCP 통신 시 바이너리 포맷을 적용하여
-              JSON 대비 패킷 크기 감소 및 처리 속도를 개선했습니다.</span></li>
-            <li><strong>데이터 영속성 보장</strong>:<br> <span class="desc"></span>로컬 파일 저장 후 DB 동기화 방식을 통해 유저의 게임 기록 및 무기 해금
-              데이터를 안정적으로 관리합니다.</span></li>
-          </ul>
-
-          <div class="architecture-box">
-            <h4>서버 통신 구조도 (Architecture)</h4>
-            <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
-              style="width: 100%; height: auto; border-radius: 8px;">
-          </div>
-        </div>
-
-        <!-- 4. AI & Navigation -->
-        <div class="tech-summary-item">
-          <h3>지형 적응형 AI 및 목표 시스템</h3>
-          <ul>
-            <li><strong>레이트레이싱 기반 이동 로직</strong>:<br> <span class="desc"></span>실시간 레이트레이싱을 통해 전방 장애물을 감지하고 환경에 맞춰 타고
-              올라가는 능동적 이동을 구현했습니다.</span></li>
-            <li><strong>업적 기반 해금 시스템</strong>:<br> <span class="desc"></span>누적 몬스터 처치 수에 따라 캐릭터 및 무기를 해금하는 게임 루프를
-              완성했습니다.</span></li>
+            <li><strong>비선형 스폰 알고리즘 및 Stress 조절</strong>:<br>
+              <span class="desc">로그(Log) 함수 모델링을 통해 게임 진행 시간에 따른 몬스터 스폰 마릿수를 절차적으로 조절, 플레이어의 누적 스트레스와 긴장감을 수학적으로
+                밸런싱했습니다.</span><br>
+              <code>int SpawnNum = Multiplier * FMath::Loge(1 + (Time * Time) / 600) + 3;</code>
+            </li>
+            <li><strong>트리거 기반 동적 이벤트 시스템</strong>:<br>
+              <span class="desc">시간 경과 및 특정 조건 달성에 따라 보스 소환, 웨이브 급증, 엘리트 몬스터 출현 등 <code>GameMode</code> 수준에서의 동적 이벤트를
+                발생시켜 게임 세션의 몰입도를 높였습니다.</span>
+            </li>
           </ul>
         </div>
       </div>
