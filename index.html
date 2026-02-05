@@ -22,18 +22,20 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>어떤 개발자가 되고 싶으신가요?</p>
-      <p>게임을 좋아하게 된 특별한 계기가 있나요?</p>
-      <p>게임 개발자로서의 비전과 포부를 들려주세요.</p>
+      <p>어떤 개발자가 되고 싶은가?</p>
+      <p>게임을 좋아하게 된 계기?</p>
+      <p>개발자로서의 비전과 포부.</p>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
       <ul>
         <li>C++</li>
-        <li>Socket Programming<br>(Winsock)</li>
+        <li>Socket Programming</li>
+        <li>Database</li>
+        <li>MCP Server</li>
         <li>Unreal Engine</li>
-        <li>Database <br>(MySQL)</li>
+        <li>Unity</li>
       </ul>
     </section>
 
@@ -69,8 +71,8 @@
           <th>주요 기능</th>
           <td colspan="3">
             • <strong>GAS</strong>를 활용한 캐릭터 능력, 무기 시스템<br>
-            • <strong>Winsock</strong>을 기반으로 <strong>Flatbuffers</strong>를 활용한 패킷 직렬화, 웹서버-게임서버 통신<br>
-            • <strong>DB</strong>를 통한 유저 랭킹 및 데이터 관리
+            • 웹서버와 게임서버간 <strong>JSON</strong>을 활용한 통신<br>
+            • <strong>DB</strong>를 통한 데이터 관리
           </td>
         </tr>
         <tr>
@@ -81,19 +83,15 @@
         </tr>
 
       </table>
-
-
       <h3
         style="margin-top: 3.5rem; margin-bottom: 2rem; font-size: 1.5rem; color: var(--text-main); font-weight: 700;">
         Technical Implementation
       </h3>
 
-
-
       <div class="tech-summary-item">
         <h3>서버 아키텍처 및 통신 최적화</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 데이터 무결성을 위해 역할 기반 프로세스 분리 및 전용 통신
-          프로토콜을 설계했습니다.</p>
+        <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">서버 아키텍처 설계 과정에서 AI 도구를 활용해 구조를 검토하고 통신
+          프로토콜을 개선했습니다.</p>
         <ul>
           <li><strong>역할 기반 멀티 서버 구조</strong>:<br>
             <span class="desc">언리얼 클라이언트, 실시간 게임 서버, 웹 서버, 데이터베이스가 명확히 분리되어 각각 독립적으로 부하를 처리하며 시스템의 안정성을 보장합니다.</span>
@@ -116,7 +114,7 @@
 
         <div class="architecture-box">
           <h4>서버 통신 구조도 (Architecture)</h4>
-          <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+          <img src="images/ServerArchitecture.PNG" alt="Server Architecture Blueprint"
             style="width: 100%; height: auto; border-radius: 8px;">
         </div>
       </div>
