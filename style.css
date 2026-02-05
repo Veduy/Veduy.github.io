@@ -262,8 +262,7 @@ a:hover {
 }
 
 .tech-summary-item {
-  border-left: 6px solid var(--primary-color);
-  padding: 0.5rem 0 0.5rem 2rem;
+  padding: 0.5rem 0;
   transition: transform var(--transition-fast);
 }
 
