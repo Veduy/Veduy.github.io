@@ -81,6 +81,15 @@ p {
   line-height: 1.7;
 }
 
+/* Header & Footer Containers */
+.header-container {
+  padding-bottom: 0;
+}
+
+.footer-container {
+  padding-top: 0;
+}
+
 /* Hero / Intro Section */
 .intro {
   margin-bottom: 5rem;
@@ -173,6 +182,31 @@ ul li {
   max-width: 500px;
   height: auto;
   box-shadow: var(--shadow-md);
+}
+
+.project-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.architecture-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tech-section-title {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.tech-intro {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 /* Links */
