@@ -92,11 +92,6 @@
 
       <div class="tech-summary-item">
         <h3>서버 아키텍처 및 통신 최적화</h3>
-        <div class="architecture-box">
-          <h4>서버 통신 구조도 (Architecture)</h4>
-          <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
-            style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
         <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">부하 분산과 데이터 무결성을 위해 역할 기반 프로세스 분리 및 전용 통신
           프로토콜을 설계했습니다.</p>
         <ul>
@@ -119,68 +114,69 @@
           </li>
         </ul>
 
-
-
-        <div class="tech-summary-container">
-          <!-- GAS & Specialized Systems -->
-          <div class="tech-summary-item">
-            <h3>게임 어빌리티 시스템 (GAS) 및 매커니즘 고도화</h3>
-            <ul>
-              <li><strong>기능적 관심사 분리에 기반한 Attribute Set 설계</strong>:<br>
-                <span class="desc">캐릭터, 무기(액터), 몬스터의 능력치 요구 사항을 분석하여 각각 독립적인 <code>Attribute Set</code> 아키텍처를 구축, 데이터의
-                  무결성과 확장성을 확보했습니다.</span>
-              </li>
-              <li><strong>복합 데미지 산출을 위한 Execution Calculation 파이프라인</strong>:<br>
-                <span class="desc">단순 수치 합산을 넘어 <code>ExecutionCalculation</code> 클래스를 활용하여 캐릭터의 스탯과 무기의 고유 속성이 결합된 정교한
-                  데미지 공식을 구현했습니다.</span>
-              </li>
-              <li><strong>Authoritative Server 기반의 어빌리티 생명주기 관리</strong>:<br>
-                <span class="desc">클라이언트 변조 방지를 위해 모든 어빌리티의 활성화(Activate) 및 효과 적용을 서버 단의 <code>PlayerController</code>
-                  타이머
-                  시스템으로 원격 제어하여 동기화 신뢰성을 극대화했습니다.</span>
-              </li>
-              <li><strong>GameplayEffect를 활용한 동적 속성 조작</strong>:<br>
-                <span class="desc">무기 강화 및 캐릭터 성장 시스템에 <code>GameplayEffect</code>를 전면 적용하여, 런타임 중 실시간으로 Attribute 값을
-                  정밀하게
-                  조정하는 모듈형 강화 시스템을 구현했습니다.</span>
-              </li>
-            </ul>
-          </div>
-
-
-          <!-- 2. Data-Driven Systems & Balancing -->
-          <div class="tech-summary-item">
-            <h3>데이터 기반 밸런싱 및 시스템 확장성</h3>
-            <ul>
-              <li><strong>Data-Driven 설계 및 유지보수성 확보</strong>:<br>
-                <span class="desc">하드코딩을 배제하고 <code>DataTable</code>과 <code>CurveTable</code>을 활용하여 무기 속성, 강화 수치, 몬스터 스텟
-                  등
-                  게임의 핵심 밸런스 데이터를 데이터 중심으로 관리합니다.</span>
-              </li>
-              <li><strong>데이터 테이블 기반 랜덤 아이템 시스템</strong>:<br>
-                <span class="desc">아이템 리스트를 <code>DataTable</code>로 분리 관리하여 시스템의 독립성을 높였으며, 정의된 데이터 셋 내에서 무기를 랜덤
-                  추첨(Random
-                  Draw)하고 관련 스텟을 즉각적으로 바인딩하는 로직을 구축했습니다.</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 3. Procedural Difficulty & Spawning -->
-          <div class="tech-summary-item">
-            <h3>수학적 모델링을 활용한 절차적 난이도 조절</h3>
-            <ul>
-              <li><strong>비선형 스폰 알고리즘 및 Stress 조절</strong>:<br>
-                <span class="desc">로그(Log) 함수 모델링을 통해 게임 진행 시간에 따른 몬스터 스폰 마릿수를 절차적으로 조절, 플레이어의 누적 스트레스와 긴장감을 수학적으로
-                  밸런싱했습니다.</span><br>
-                <code>int SpawnNum = Multiplier * FMath::Loge(1 + (Time * Time) / 600) + 3;</code>
-              </li>
-              <li><strong>트리거 기반 동적 이벤트 시스템</strong>:<br>
-                <span class="desc">시간 경과 및 특정 조건 달성에 따라 보스 소환, 웨이브 급증, 엘리트 몬스터 출현 등 <code>GameMode</code> 수준에서의 동적 이벤트를
-                  발생시켜 게임 세션의 몰입도를 높였습니다.</span>
-              </li>
-            </ul>
-          </div>
+        <div class="architecture-box">
+          <h4>서버 통신 구조도 (Architecture)</h4>
+          <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+            style="width: 100%; height: auto; border-radius: 8px;">
         </div>
+      </div>
+
+      <div class="tech-summary-container">
+        <!-- GAS & Specialized Systems -->
+        <div class="tech-summary-item">
+          <h3>게임 어빌리티 시스템 (GAS) 및 매커니즘 고도화</h3>
+          <ul>
+            <li><strong>기능적 관심사 분리에 기반한 Attribute Set 설계</strong>:<br>
+              <span class="desc">캐릭터, 무기(액터), 몬스터의 능력치 요구 사항을 분석하여 각각 독립적인 <code>Attribute Set</code> 아키텍처를 구축, 데이터의
+                무결성과 확장성을 확보했습니다.</span>
+            </li>
+            <li><strong>복합 데미지 산출을 위한 Execution Calculation 파이프라인</strong>:<br>
+              <span class="desc">단순 수치 합산을 넘어 <code>ExecutionCalculation</code> 클래스를 활용하여 캐릭터의 스탯과 무기의 고유 속성이 결합된 정교한
+                데미지 공식을 구현했습니다.</span>
+            </li>
+            <li><strong>Authoritative Server 기반의 어빌리티 생명주기 관리</strong>:<br>
+              <span class="desc">클라이언트 변조 방지를 위해 모든 어빌리티의 활성화(Activate) 및 효과 적용을 서버 단의 <code>PlayerController</code> 타이머
+                시스템으로 원격 제어하여 동기화 신뢰성을 극대화했습니다.</span>
+            </li>
+            <li><strong>GameplayEffect를 활용한 동적 속성 조작</strong>:<br>
+              <span class="desc">무기 강화 및 캐릭터 성장 시스템에 <code>GameplayEffect</code>를 전면 적용하여, 런타임 중 실시간으로 Attribute 값을 정밀하게
+                조정하는 모듈형 강화 시스템을 구현했습니다.</span>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- 2. Data-Driven Systems & Balancing -->
+        <div class="tech-summary-item">
+          <h3>데이터 기반 밸런싱 및 시스템 확장성</h3>
+          <ul>
+            <li><strong>Data-Driven 설계 및 유지보수성 확보</strong>:<br>
+              <span class="desc">하드코딩을 배제하고 <code>DataTable</code>과 <code>CurveTable</code>을 활용하여 무기 속성, 강화 수치, 몬스터 스텟 등
+                게임의 핵심 밸런스 데이터를 데이터 중심으로 관리합니다.</span>
+            </li>
+            <li><strong>데이터 테이블 기반 랜덤 아이템 시스템</strong>:<br>
+              <span class="desc">아이템 리스트를 <code>DataTable</code>로 분리 관리하여 시스템의 독립성을 높였으며, 정의된 데이터 셋 내에서 무기를 랜덤 추첨(Random
+                Draw)하고 관련 스텟을 즉각적으로 바인딩하는 로직을 구축했습니다.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 3. Procedural Difficulty & Spawning -->
+        <div class="tech-summary-item">
+          <h3>수학적 모델링을 활용한 절차적 난이도 조절</h3>
+          <ul>
+            <li><strong>비선형 스폰 알고리즘 및 Stress 조절</strong>:<br>
+              <span class="desc">로그(Log) 함수 모델링을 통해 게임 진행 시간에 따른 몬스터 스폰 마릿수를 절차적으로 조절, 플레이어의 누적 스트레스와 긴장감을 수학적으로
+                밸런싱했습니다.</span><br>
+              <code>int SpawnNum = Multiplier * FMath::Loge(1 + (Time * Time) / 600) + 3;</code>
+            </li>
+            <li><strong>트리거 기반 동적 이벤트 시스템</strong>:<br>
+              <span class="desc">시간 경과 및 특정 조건 달성에 따라 보스 소환, 웨이브 급증, 엘리트 몬스터 출현 등 <code>GameMode</code> 수준에서의 동적 이벤트를
+                발생시켜 게임 세션의 몰입도를 높였습니다.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
