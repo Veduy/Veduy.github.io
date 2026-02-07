@@ -19,6 +19,10 @@
   --transition-normal: 0.3s ease;
 }
 
+html {
+  font-size: 18px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -76,7 +80,7 @@ h2::after {
 
 p {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 450;
   line-height: 1.7;
 }
@@ -87,7 +91,7 @@ p {
 }
 
 .intro p {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 500;
   color: var(--primary-color);
 }
@@ -253,6 +257,24 @@ a:hover {
   font-weight: 500;
 }
 
+/* Technical Implementation Header */
+#technical-implementation-header {
+  font-size: 1.75rem;
+  color: #001f3f;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: block;
+  /* Overriding flex from h2 */
+}
+
+#technical-implementation-header::after {
+  display: none;
+  /* Removing the line after for this specific header */
+}
+
 /* Technical Summary New Styles */
 .tech-summary-container {
   display: flex;
@@ -262,22 +284,26 @@ a:hover {
 }
 
 .tech-summary-item {
-  padding: 0.5rem 0;
-  transition: transform var(--transition-fast);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #0066cc;
+  /* Thick blue border from reference */
 }
 
+/* Remove hover effect from reference-style items if they should be static */
 .tech-summary-item:hover {
-  transform: translateX(8px);
+  transform: none;
 }
 
 .tech-summary-item h3 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--text-main);
-  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #001f3f;
+  /* Deep Navy from reference */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.01em;
 }
 
 .tech-summary-item ul {
@@ -297,24 +323,22 @@ a:hover {
   line-height: 1.7;
   position: relative;
   padding-left: 1.5rem;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .tech-summary-item ul li::before {
-  content: '→';
+  content: '•';
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: #0066cc;
   font-weight: 900;
 }
 
 .tech-summary-item strong {
-  display: inline-block;
-  color: var(--primary-color);
-  font-weight: 800;
-  font-size: 1.15rem;
-  margin-bottom: 4px;
-  letter-spacing: -0.01em;
+  display: inline;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .tech-summary-item .desc {
