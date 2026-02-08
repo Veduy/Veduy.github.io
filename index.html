@@ -17,25 +17,22 @@
   <main class="container">
     <section class="intro">
       <h1>안녕하세요. 지원자 원유찬입니다.</h1>
-      <p>Junior Game Programmer</p>
+      <p>Junior Programmer</p>
     </section>
 
     <section id="about">
       <h2>About Me</h2>
       <p>서버-클라이언트 아키텍처와 게임플레이 시스템 설계에 깊은 관심을 가진 주니어 게임 프로그래머입니다.
-        Unreal Engine과 C++를 활용한 멀티플레이어 게임 개발 경험을 보유하고 있으며, 네트워크 통신과 데이터 동기화 시스템 구축에 강점이 있습니다.
-        플레이어에게 몰입감 있는 경험을 제공하기 위해서는 견고한 기술적 기반이 필수적이라고 믿습니다.
-        단순히 기능을 구현하는 것을 넘어, 성능과 확장성을 고려한 시스템 설계를 통해 더 나은 게임을 만들고자
-        합니다.</p>
+        Unreal Engine과 C++를 활용한 멀티플레이어 게임 개발 경험을 보유하고 있습니다.</p>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Unreal Engine ~ MCP 연동</li>
-        <li>Network - Socket Programming</li>
+        <li>Unreal Engine</li>
+        <li>Network</li>
+        <li>MCP</li>
         <li>Database</li>
-        <li>Unity</li>
       </ul>
     </section>
 
@@ -72,7 +69,8 @@
           <td colspan="3">
             • <strong>GAS</strong>를 활용한 캐릭터 능력, 무기 시스템<br>
             • 웹서버와 게임서버간 <strong>JSON</strong>을 활용한 통신<br>
-            • <strong>DB</strong>를 통한 데이터 관리
+            • <strong>DB</strong>를 통한 유저 데이터 관리<br>
+            • <strong>MCP</strong>를 활용한 에디터 자동화
           </td>
         </tr>
         <tr>
@@ -88,10 +86,15 @@
       </h2>
 
       <div class="tech-summary-item">
-        <h3>서버 아키텍처 및 통신 최적화</h3>
+        <h3>서버 아키텍처 및 통신</h3>
         <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">서버 아키텍처 설계 과정에서 AI 도구를 활용해 구조를 검토하고 통신
           프로토콜을 개선했습니다.</p>
         <ul>
+          <div class="architecture-box">
+            <h4>서버 통신 구조도 (Architecture)</h4>
+            <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+              style="width: 100%; height: auto; border-radius: 8px;">
+          </div>
           <li><strong>역할 기반 멀티 서버 구조</strong>:<br>
             <span class="desc">언리얼 클라이언트, 실시간 게임 서버, 웹 서버, 데이터베이스가 명확히 분리되어 각각 독립적으로 부하를 처리하며 시스템의 안정성을 보장합니다.</span>
           </li>
@@ -102,7 +105,7 @@
           <li><strong>중앙 집중식 데이터베이스 정책</strong>:<br>
             <span class="desc">보안과 성능을 위해 웹 서버만 DB에 직접 접근하며, 게임 서버는 웹 서버를 통해 필요한 플레이어 데이터를 비동기적으로 로드 및 저장합니다.</span>
           </li>
-          <li><strong>FlatBuffers 패킷 최적화</strong>:<br>
+          <li><strong>FlatBuffers 패킷 직렬화</strong>:<br>
             <span class="desc">Winsock 기반 TCP 통신 시 FlatBuffers 바이너리 직렬화를 적용하여 JSON 대비 패킷 크기를 줄이고 통신 처리 효율을
               극대화했습니다.</span>
           </li>
@@ -110,12 +113,6 @@
             <span class="desc">모든 서버 간 통신은 비동기 방식으로 설계하여 프레임 지연을 최소화하고, 프로세스 분리를 통해 유지보수성과 확장성을 확보했습니다.</span>
           </li>
         </ul>
-
-        <div class="architecture-box">
-          <h4>서버 통신 구조도 (Architecture)</h4>
-          <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
-            style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
       </div>
 
       <div class="tech-summary-container">
@@ -160,7 +157,7 @@
 
         <!-- 3. Procedural Difficulty & Spawning -->
         <div class="tech-summary-item">
-          <h3>수학적 모델링을 활용한 절차적 난이도 조절</h3>
+          <h3>수학적 모델링을 활용한 동적 난이도 조절</h3>
           <ul>
             <li><strong>비선형 스폰 알고리즘 및 Stress 조절</strong>:<br>
               <span class="desc">로그(Log) 함수 모델링을 통해 게임 진행 시간에 따른 몬스터 스폰 마릿수를 절차적으로 조절, 플레이어의 누적 스트레스와 긴장감을 수학적으로
