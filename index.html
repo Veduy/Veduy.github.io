@@ -79,49 +79,38 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      <table class="project-table">
-        <tr>
-          <th>프로젝트명</th>
-          <td colspan="3"><strong>Megabonky</strong></td>
-        </tr>
-        <tr>
-          <th>이미지(GIF)</th>
-          <td colspan="3">
-            <img src="images/megabonk_gameplay.gif" alt="MegaBonk Gameplay GIF"
-              style="max-width: 100%; border-radius: 8px;">
-          </td>
-        </tr>
-        <tr>
-          <th>프로젝트 개요</th>
-          <td colspan="3">
-            서버-클라이언트 구조에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.<br>
-            온라인 멀티플레이 환경에서 데이터 동기화를 최우선 과제로 삼아 개발했습니다.
-          </td>
-        </tr>
-        <tr>
-          <th>작업 인원</th>
-          <td>1인 개발</td>
-          <th>기간</th>
-          <td>2025.12 ~ 2026.02</td>
-        </tr>
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Megabonky</h3>
+          <div class="project-meta">
+            <span class="meta-badge">1인 개발</span>
+            <span class="meta-badge">2025.12 ~ 2026.02</span>
+          </div>
+        </div>
 
-        <tr>
-          <th>주요 기능</th>
-          <td colspan="3">
-            • <strong>GAS</strong>를 활용한 캐릭터 능력, 무기 시스템<br>
-            • 웹서버와 게임서버간 <strong>JSON</strong>을 활용한 통신<br>
-            • <strong>DB</strong>를 통한 유저 데이터 관리<br>
-            • <strong>MCP</strong>를 활용한 에디터 자동화
-          </td>
-        </tr>
-        <tr>
-          <th>YouTube</th>
-          <td colspan="3">
-            <a href="https://youtube.com" target="_blank">프로젝트 영상 보기</a>
-          </td>
-        </tr>
+        <div class="project-media">
+          <img src="images/megabonk_gameplay.gif" alt="MegaBonk Gameplay GIF">
+        </div>
 
-      </table>
+        <p class="project-desc">
+          서버-클라이언트 구조에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.
+          온라인 멀티플레이 환경에서 데이터 동기화를 최우선 과제로 삼아 개발했습니다.
+        </p>
+
+        <div class="project-features">
+          <h4>주요 기능</h4>
+          <ul class="feature-list">
+            <li><strong>GAS</strong>를 활용한 캐릭터 능력, 무기 시스템</li>
+            <li>웹서버와 게임서버간 <strong>JSON</strong>을 활용한 통신</li>
+            <li><strong>DB</strong>를 통한 유저 데이터 관리</li>
+            <li><strong>MCP</strong>를 활용한 에디터 자동화</li>
+          </ul>
+        </div>
+
+        <a href="https://youtube.com" target="_blank" class="project-link">
+          ▶ 프로젝트 영상 보기
+        </a>
+      </div>
       <h2 id="technical-implementation-header">
         TECHNICAL IMPLEMENTATION
       </h2>
