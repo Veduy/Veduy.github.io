@@ -14,10 +14,27 @@
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">WYC</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <main class="container">
     <section class="intro">
-      <h1>안녕하세요. 지원자 원유찬입니다.</h1>
-      <p>Junior Programmer</p>
+      <p class="intro-label">Junior Game Programmer</p>
+      <h1>안녕하세요.<br>지원자 <span class="highlight">원유찬</span>입니다.</h1>
+      <p class="intro-desc">서버-클라이언트 아키텍처와 게임플레이 시스템 설계에 관심을 가진<br>주니어 게임 프로그래머입니다.</p>
+      <div class="intro-cta">
+        <a href="#projects" class="btn-primary">프로젝트 보기</a>
+        <a href="#contact" class="btn-secondary">연락하기</a>
+      </div>
     </section>
 
     <section id="about">
@@ -28,15 +45,39 @@
 
     <section id="skills">
       <h2>Skills</h2>
-      <ul>
-        <li>Unreal Engine</li>
-        <li>Network</li>
-        <li>MCP</li>
-        <li>Database</li>
+      <ul class="skills-grid">
+        <li>
+          <span class="skill-icon">🎮</span>
+          <div>
+            <strong>Unreal Engine</strong>
+            <span class="skill-desc">C++ / Blueprint</span>
+          </div>
+        </li>
+        <li>
+          <span class="skill-icon">🌐</span>
+          <div>
+            <strong>Network</strong>
+            <span class="skill-desc">Server-Client Architecture</span>
+          </div>
+        </li>
+        <li>
+          <span class="skill-icon">🤖</span>
+          <div>
+            <strong>MCP</strong>
+            <span class="skill-desc">LLM Agent Automation</span>
+          </div>
+        </li>
+        <li>
+          <span class="skill-icon">🗄️</span>
+          <div>
+            <strong>Database</strong>
+            <span class="skill-desc">Data Management</span>
+          </div>
+        </li>
       </ul>
     </section>
 
-    <section id="PROJECTS">
+    <section id="projects">
       <h2>Projects</h2>
       <table class="project-table">
         <tr>
@@ -196,10 +237,25 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p><strong>Email:</strong> wonyu1997@naver.com</p>
-      <p><strong>Phone:</strong> 010-6429-8488</p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Veduy" target="_blank">github.com/Veduy</a></p>
+      <div class="contact-grid">
+        <a href="mailto:wonyu1997@naver.com" class="contact-card">
+          <span class="contact-icon">✉️</span>
+          <strong>Email</strong>
+          <span>wonyu1997@naver.com</span>
+        </a>
+        <a href="tel:010-6429-8488" class="contact-card">
+          <span class="contact-icon">📞</span>
+          <strong>Phone</strong>
+          <span>010-6429-8488</span>
+        </a>
+        <a href="https://github.com/Veduy" target="_blank" class="contact-card">
+          <span class="contact-icon">💻</span>
+          <strong>GitHub</strong>
+          <span>github.com/Veduy</span>
+        </a>
+      </div>
     </section>
+  </main>
 </body>
 
 </html>
