@@ -337,7 +337,7 @@ a:hover {
 
 .tech-summary-item strong {
   display: inline;
-  color: var(--text-main);
+  color: #0066cc;
   font-weight: 700;
   font-size: 1rem;
 }
