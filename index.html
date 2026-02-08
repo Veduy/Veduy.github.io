@@ -173,8 +173,29 @@
             </li>
           </ul>
         </div>
+
+        <!-- 4. MCP-based Automation -->
+        <div class="tech-summary-item">
+          <h3>MCP 기반 LLM 에이전트 연동 및 에디터 자동화</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">Claude와 Unreal MCP 플러그인을 연동해 자연어 명령으로
+            에디터 작업을 수행하고,
+            사용자 정의 C++ 클래스 연동 과정에서 발생한 문제를 해결했습니다.</p>
+          <ul>
+            <li><strong>커스텀 C++ 클래스 탐색 문제 분석 및 수정</strong>:<br>
+              <span class="desc">MCP 플러그인에서 블루프린트 생성 시 엔진 기본 클래스만 탐색되던 문제를 확인하고,
+                프로젝트 내 사용자 정의 UClass를 이름 기준으로 찾을 수 있도록
+                플러그인의 클래스 탐색 로직을 수정했습니다.</span>
+            </li>
+            <li><strong>자연어 기반 블루프린트 생성 워크플로우 개선</strong>:<br>
+              <span class="desc">특정 C++ 클래스를 부모로 하는 블루프린트 생성을
+                자연어 명령으로 수행할 수 있도록 동작을 검증하고,
+                AI 에이전트 기반 에디터 자동화 흐름을 안정적으로 사용할 수 있게 했습니다.</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
+
 
     <section id="contact">
       <h2>Contact</h2>
