@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 90" width="540" height="90" text-rendering="geometricPrecision">
+  <rect x="0" y="0" width="540" height="90" rx="8" ry="8" fill="#1e293b"/>
+
+  <style>
+    text { font-family: 'Cambria Math', 'Latin Modern Math', 'Times New Roman', serif; fill: #e2e8f0; }
+    .var { font-style: italic; fill: #7dd3fc; }
+    .op { fill: #fbbf24; }
+    .paren { fill: #e2e8f0; }
+  </style>
+
+  <!-- SpawnNum -->
+  <text x="18" y="50" font-size="22" class="var">SpawnNum</text>
+
+  <!-- = -->
+  <text x="118" y="50" font-size="22" class="op">=</text>
+
+  <!-- Multiplier -->
+  <text x="140" y="50" font-size="22" class="var">Multiplier</text>
+
+  <!-- · (middle dot) -->
+  <text x="232" y="50" font-size="22" class="op">&#xb7;</text>
+
+  <!-- ln -->
+  <text x="248" y="50" font-size="22">ln</text>
+
+  <!-- Big left paren -->
+  <text x="272" y="62" font-size="48" class="paren">(</text>
+
+  <!-- 1 -->
+  <text x="290" y="50" font-size="22">1</text>
+
+  <!-- + -->
+  <text x="308" y="50" font-size="22" class="op">+</text>
+
+  <!-- Fraction: Time² / 600 -->
+  <text x="358" y="36" font-size="22" text-anchor="middle" class="var">Time ²</text>
+  <line x1="325" y1="42" x2="392" y2="42" stroke="#e2e8f0" stroke-width="1.5" shape-rendering="crispEdges"/>
+  <text x="358" y="62" font-size="22" text-anchor="middle">600</text>
+
+  <!-- Big right paren -->
+  <text x="396" y="62" font-size="48" class="paren">)</text>
+
+  <!-- + -->
+  <text x="425" y="50" font-size="22" class="op">+</text>
+
+  <!-- 3 -->
+  <text x="448" y="50" font-size="22">3</text>
+</svg>

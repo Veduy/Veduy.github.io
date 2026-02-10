@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <defs>
+    <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect x="0" y="0" width="600" height="300" rx="8" ry="8" fill="#1e293b"/>
+
+  <style>
+    text { font-family: 'Inter', 'Pretendard', sans-serif; fill: #94a3b8; font-size: 12px; }
+    .title { font-size: 14px; fill: #e2e8f0; font-weight: 600; }
+    .axis-label { font-size: 11px; fill: #64748b; }
+    line.grid { stroke: #334155; stroke-width: 1; shape-rendering: crispEdges; }
+    line.axis { stroke: #475569; stroke-width: 1.5; shape-rendering: crispEdges; }
+  </style>
+
+  <!-- 제목 -->
+  <text x="315" y="24" text-anchor="middle" class="title">시간에 따른 몬스터 스폰 수 (Multiplier = 1)</text>
+
+  <!-- Y축 그리드 + 라벨 -->
+  <line class="grid" x1="70" y1="40" x2="560" y2="40"/>
+  <text x="60" y="44" text-anchor="end">10</text>
+
+  <line class="grid" x1="70" y1="80" x2="560" y2="80"/>
+  <text x="60" y="84" text-anchor="end">8</text>
+
+  <line class="grid" x1="70" y1="120" x2="560" y2="120"/>
+  <text x="60" y="124" text-anchor="end">6</text>
+
+  <line class="grid" x1="70" y1="160" x2="560" y2="160"/>
+  <text x="60" y="164" text-anchor="end">4</text>
+
+  <line class="grid" x1="70" y1="200" x2="560" y2="200"/>
+  <text x="60" y="204" text-anchor="end">2</text>
+
+  <!-- X축 -->
+  <line class="axis" x1="70" y1="240" x2="560" y2="240"/>
+  <!-- Y축 -->
+  <line class="axis" x1="70" y1="40" x2="70" y2="240"/>
+
+  <!-- X축 라벨 (분) -->
+  <text x="70" y="258" text-anchor="middle">0</text>
+  <text x="168" y="258" text-anchor="middle">1분</text>
+  <text x="266" y="258" text-anchor="middle">2분</text>
+  <text x="364" y="258" text-anchor="middle">3분</text>
+  <text x="462" y="258" text-anchor="middle">4분</text>
+  <text x="560" y="258" text-anchor="middle">5분</text>
+
+  <!-- X축 틱 -->
+  <line class="axis" x1="168" y1="237" x2="168" y2="243"/>
+  <line class="axis" x1="266" y1="237" x2="266" y2="243"/>
+  <line class="axis" x1="364" y1="237" x2="364" y2="243"/>
+  <line class="axis" x1="462" y1="237" x2="462" y2="243"/>
+  <line class="axis" x1="560" y1="237" x2="560" y2="243"/>
+
+  <!-- 축 이름 -->
+  <text x="315" y="278" text-anchor="middle" class="axis-label">경과 시간</text>
+  <text x="18" y="140" text-anchor="middle" class="axis-label" transform="rotate(-90, 18, 140)">스폰 수</text>
+
+  <!-- 곡선 아래 영역 채우기 -->
+  <!-- f(t) = ln(1 + t²/600) + 3, Y축: 0-10 → y=[240, 40], X축: 0-300 → x=[70, 560] -->
+  <!-- mapX(t)=70+t*1.633, mapY(v)=240-v*20 -->
+  <polygon fill="url(#areaFill)" points="
+    70,180
+    86,177 103,170 119,162 135,154 152,147
+    168,141 184,136 201,131 217,127 233,123
+    250,119 266,116 282,113 299,110 315,107
+    331,105 348,102 364,100 380,98 397,96
+    413,94 429,92 446,90 462,89 478,87
+    495,85 511,84 527,83 544,81 560,80
+    560,240 70,240
+  "/>
+
+  <!-- 곡선 -->
+  <polyline fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="
+    70,180
+    86,177 103,170 119,162 135,154 152,147
+    168,141 184,136 201,131 217,127 233,123
+    250,119 266,116 282,113 299,110 315,107
+    331,105 348,102 364,100 380,98 397,96
+    413,94 429,92 446,90 462,89 478,87
+    495,85 511,84 527,83 544,81 560,80
+  "/>
+
+  <!-- 최소 스폰 수 기준선 (y=3) -->
+  <line x1="70" y1="180" x2="560" y2="180" stroke="#fbbf24" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="565" y="184" fill="#fbbf24" font-size="11">최소 3마리</text>
+
+  <!-- 시작점 도트 -->
+  <circle cx="70" cy="180" r="4" fill="#3b82f6"/>
+  <circle cx="70" cy="180" r="2" fill="#1e293b"/>
+</svg>
