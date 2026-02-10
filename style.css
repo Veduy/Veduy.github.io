@@ -133,7 +133,7 @@ h1 .highlight {
 h2 {
   font-size: 1.875rem;
   font-weight: 700;
-  margin-top: 4rem;
+  margin-top: 0rem;
   margin-bottom: 1.5rem;
   color: var(--text-main);
   position: relative;
@@ -189,6 +189,39 @@ p {
   margin-top: 2rem;
 }
 
+.intro-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.2rem;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted) !important;
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  text-decoration: none !important;
+  transition: all var(--transition-fast);
+}
+
+.contact-chip:hover {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.04);
+  text-decoration: none !important;
+}
+
+.contact-github svg {
+  flex-shrink: 0;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -241,8 +274,9 @@ section:not(.intro) {
 }
 
 section:not(.intro):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  transform: scale(1.02);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px -5px rgba(37, 99, 235, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
 }
 
 section h2 {
@@ -453,66 +487,44 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== Contact Section ===== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+
+/* ===== Tech Details Toggle ===== */
+.tech-details {
+  border-top: 1px solid #e2e8f0;
 }
 
-.contact-card {
+.tech-details summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tech-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tech-toggle {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 28px 20px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border: 1px solid #e2e8f0;
-  text-decoration: none !important;
-  transition: all var(--transition-fast);
   gap: 8px;
-}
-
-.contact-card:hover {
-  border-color: var(--primary-color);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
-}
-
-.contact-icon {
-  font-size: 2rem;
-  margin-bottom: 4px;
-}
-
-.contact-card strong {
-  font-size: 0.85rem;
-  color: var(--text-main);
+  font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
-.contact-card span:last-child {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 400;
+.tech-toggle::before {
+  content: '\25B6';
+  font-size: 0.65rem;
+  transition: transform var(--transition-normal);
 }
 
-/* ===== Technical Implementation Header ===== */
-#technical-implementation-header {
-  font-size: 1.75rem;
-  color: #001f3f;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  display: block;
+.tech-details[open] > .tech-toggle::before {
+  transform: rotate(90deg);
 }
 
-#technical-implementation-header::after {
-  display: none;
+.tech-details-content {
+  padding: 2rem 32px 32px;
 }
 
 /* ===== Technical Summary Styles ===== */
@@ -659,8 +671,8 @@ section:not(.intro) {
     grid-template-columns: 1fr;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .intro-contact {
+    flex-direction: column;
   }
 
   .intro-cta {
