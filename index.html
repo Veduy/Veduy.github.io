@@ -217,9 +217,18 @@
                   <li><strong>커스텀 C++ 클래스 탐색 문제 분석 및 수정</strong>:<br>
                     <span class="desc">MCP 플러그인에서 블루프린트 생성 시 엔진 기본 클래스만 탐색되던 문제를 확인하고 
                       사용자 정의 클래스를 엔진에 로드된 UClass 오브젝트 풀에서 탐색해 찾을 수 있도록 플러그인의 클래스 탐색 로직을 수정했습니다.</span>
+                      <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
+                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 C++ 클래스를 부모로 BP 클래스 생성</figcaption>
+                        <img src="images/CreateClass.gif" alt="커스텀 C++ 클래스 블루프린트 생성" style="width: 100%; display: block; border-radius: 8px;">
+                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 BP 클래스를 부모로 BP 클래스 생성</figcaption>
+                        <img src="images/CreateClassFromBP.gif" alt="커스텀 BP 클래스 블루프린트 생성" style="width: 100%; margin-bottom: 20px; display: block; border-radius: 8px;">
+                      </figure>
                   </li>
                   <li><strong>자연어 기반 블루프린트 작성 워크플로우 개선</strong>:<br>
-                    <span class="desc">자기 클래스의 함수만 찾던 기존 로직을 수정하여 자신 외부 클래스의 함수를 자연어 명령으로 호출할 수 있도록 했습니다.</span>
+                    <span class="desc">클래스 내부의 함수와 변수만 찾을 수 있던 기존 로직을 수정하여 자신 외부 클래스의 변수를 가져오거나, 함수를 호출할 수 있도록 개선했습니다.</span>
+                    <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
+                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">외부 클래스 변수, 함수 호출</figcaption>
+                        <img src="images/EditBlueprint.gif" alt="외부 클래스 변수, 함수 호출" style="width: 100%; display: block; border-radius: 8px;">
                   </li>
                 </ul>
               </div>
