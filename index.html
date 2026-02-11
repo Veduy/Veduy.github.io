@@ -140,8 +140,8 @@
                 웹서버 구축하는데 시간을 수십배 절약해 게임 로직 개발에 집중할 수 있었습니다.</p>
               <ul>
                 <div class="architecture-box">
-                  <h4>서버 통신 구조도 (Architecture)</h4>
-                  <img src="images/ServerArchitecture.png" alt="Server Architecture Blueprint"
+                  <h4>서버 통신 구조도</h4>
+                  <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
                     style="width: 100%; height: auto; border-radius: 8px;">
                 </div>
                 <li><strong>Network 통신 프로토콜</strong>:<br>
@@ -238,6 +238,27 @@
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.tech-details img, .project-media img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  </script>
 </body>
 
 </html>
