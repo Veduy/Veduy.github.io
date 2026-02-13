@@ -94,7 +94,7 @@
         </div>
 
         <div class="project-media">
-          <img src="images/megabonk_gameplay.gif" alt="MegaBonk Gameplay GIF">
+          <img src="images/InGame.gif" alt="MegaBonk Gameplay GIF">
         </div>
 
         <p class="project-desc">
@@ -133,8 +133,8 @@
                     style="width: 100%; height: auto; border-radius: 8px;">
                 </div>
                 <li><strong>Network 통신 프로토콜</strong>:<br>
-                  <span class="desc">게임서버와 웹서버는 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
-                    Replication)를 사용하여 최적화했습니다.</span>
+                  <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
+                    Replication)기능을 사용하여 통신했습니다.</span>
                 </li>
                 <li><strong>데이터베이스 접근 분리</strong>:<br>
                   <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
@@ -160,7 +160,7 @@
                     <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해 <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
                   </li>
                   <li><strong>GameplayEffect 기반 능력치 강화</strong>:<br>
-                      <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, 게임 중 능력치가 변경되도록 구성했습니다. // 이미지 추가하기 //</span>
+                      <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, 게임 중 능력치가 변경되도록 구성했습니다.
                   </li>
                 </ul>
               </div>
