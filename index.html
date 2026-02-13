@@ -94,12 +94,30 @@
         </div>
 
         <div class="project-media">
-          <img src="images/InGame.gif" alt="MegaBonk Gameplay GIF">
+          <div class="slideshow-container">
+            <div class="slide active">
+              <img src="images/InGame.gif" alt="InGame Gameplay">
+            </div>
+            <div class="slide">
+              <img src="images/CreateClass.gif" alt="CreateClass Demo">
+            </div>
+            <div class="slide">
+              <img src="images/EditBlueprint.gif" alt="EditBlueprint Demo">
+            </div>
+
+            <button class="slide-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="slide-btn next" onclick="changeSlide(1)">❯</button>
+          </div>
+
+          <div class="slide-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
         </div>
 
         <p class="project-desc">
           서버-클라이언트 구조에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.<br>
-          온라인 네트워크 환경에서 데이터 동기화를 최우선 목표로 삼아 개발했습니다.
         </p>
 
         <div class="project-features">
@@ -112,9 +130,9 @@
           </ul>
         </div>
 
-        <a href="https://youtube.com" target="_blank" class="project-link tech-toggle">
+        <!-- <a href="https://youtube.com" target="_blank" class="project-link tech-toggle">
           프로젝트 영상 보기
-        </a>
+        </a> -->
 
         <details class="tech-details" open>
           <summary class="project-link tech-toggle">
@@ -232,6 +250,7 @@
   </div>
 
   <script>
+    // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
 
@@ -245,6 +264,59 @@
 
     lightbox.addEventListener('click', () => {
       lightbox.classList.remove('active');
+    });
+
+    // Slideshow functionality
+    let currentSlideIndex = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+
+      if (index >= slides.length) {
+        currentSlideIndex = 0;
+      } else if (index < 0) {
+        currentSlideIndex = slides.length - 1;
+      } else {
+        currentSlideIndex = index;
+      }
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex].classList.add('active');
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlideIndex + direction);
+      resetSlideTimer();
+    }
+
+    function currentSlide(index) {
+      showSlide(index);
+      resetSlideTimer();
+    }
+
+    function autoSlide() {
+      currentSlideIndex++;
+      showSlide(currentSlideIndex);
+    }
+
+    function startSlideTimer() {
+      slideInterval = setInterval(autoSlide, 5000); // 5초마다 자동 전환
+    }
+
+    function resetSlideTimer() {
+      clearInterval(slideInterval);
+      startSlideTimer();
+    }
+
+    // 페이지 로드 시 슬라이드쇼 시작
+    document.addEventListener('DOMContentLoaded', () => {
+      showSlide(0);
+      startSlideTimer();
     });
   </script>
 </body>
