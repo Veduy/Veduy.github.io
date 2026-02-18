@@ -123,10 +123,10 @@
         <div class="project-features">
           <h4>주요 기능</h4>
           <ul class="feature-list">
-            <li><strong>JSON</strong>을 활용한 웹서버와 게임서버간 <strong>HTTP</strong>통신</li>
-            <li><strong>GAS</strong>를 활용한 캐릭터 능력, 무기 시스템</li>
-            <li><strong>DB</strong>를 통한 유저 데이터 관리</li>
-            <li><strong>MCP</strong>를 활용한 에디터 자동화</li>
+            <li><strong>GAS</strong>캐릭터 능력, 무기 시스템</li>
+            <li><strong>MCP</strong>에디터 자동화</li>
+            <li><strong>JSON</strong>웹서버와 게임서버간 <strong>HTTP</strong>통신</li>
+            <li><strong>DB</strong>유저 데이터 관리</li>
           </ul>
         </div>
 
@@ -139,51 +139,26 @@
             Technical Implementation
           </summary>
           <div class="tech-details-content">
+             <!-- GAS & Specialized Systems -->
             <div class="tech-summary-item">
-              <h3>서버 아키텍처 및 통신</h3>
-              <p style="font-size: 0.90rem; margin-bottom: 1rem; font-weight: 400;">
-                설계 과정에서 AI를 활용해 구조를 검토하고 통신 프로토콜을 개선을 통해 
-                웹서버 구축하는데 시간을 수십배 절약해 게임 로직 개발에 집중할 수 있었습니다.</p>
+              <h3>게임 어빌리티 시스템(GAS)사용 게임 매커니즘</h3>
               <ul>
-                <div class="architecture-box">
-                  <h4>서버 통신 구조도</h4>
-                  <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
-                    style="width: 100%; height: auto; border-radius: 8px;">
-                </div>
-                <li><strong>Network 통신 프로토콜</strong>:<br>
-                  <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
-                    Replication)기능을 사용하여 통신했습니다.</span>
+                <li><strong>서버 타이머 기반 어빌리티 활성화</strong>:<br>
+                  <span class="desc">자동 발동형 어빌리티의 특성을 고려해 서버에서 타이머 기반으로 능력을 활성화했습니다.</span>
                 </li>
-                <li><strong>데이터베이스 접근 분리</strong>:<br>
-                  <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
+                <li><strong>역할별 Attribute Set 설계</strong>:<br>
+                  <span class="desc"> 캐릭터, 무기, 몬스터의 능력치 특성이 달라 각각 별도의 <code>Attribute Set</code>으로 분리해 관리했습니다.</span>
                 </li>
-                <li><strong>비동기 통신 적용</strong>:<br>
-                  <span class="desc">서버 간 통신을 비동기 방식으로 처리하여 게임 플레이 중 프레임 지연이 발생하지 않도록 했습니다.</span>
+                <li><strong>Execution Calculation 활용한 데미지 계산</strong>:<br>
+                  <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해 <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
+                </li>
+                <li><strong>GameplayEffect 기반 능력치 강화</strong>:<br>
+                    <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, 게임 중 능력치가 변경되도록 구성했습니다.
                 </li>
               </ul>
             </div>
 
-            <div class="tech-summary-container">
-              <!-- GAS & Specialized Systems -->
-              <div class="tech-summary-item">
-                <h3>게임 어빌리티 시스템(GAS)사용 게임 매커니즘</h3>
-                <ul>
-                  <li><strong>서버 타이머 기반 어빌리티 활성화</strong>:<br>
-                    <span class="desc">자동 발동형 어빌리티의 특성을 고려해 서버에서 타이머 기반으로 능력을 활성화했습니다.</span>
-                  </li>
-                  <li><strong>역할별 Attribute Set 설계</strong>:<br>
-                    <span class="desc"> 캐릭터, 무기, 몬스터의 능력치 특성이 달라 각각 별도의 <code>Attribute Set</code>으로 분리해 관리했습니다.</span>
-                  </li>
-                  <li><strong>Execution Calculation 활용한 데미지 계산</strong>:<br>
-                    <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해 <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
-                  </li>
-                  <li><strong>GameplayEffect 기반 능력치 강화</strong>:<br>
-                      <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, 게임 중 능력치가 변경되도록 구성했습니다.
-                  </li>
-                </ul>
-              </div>
-
-              <!-- 2. Data-Driven Systems & Balancing -->
+                          <!-- 2. Data-Driven Systems & Balancing -->
               <div class="tech-summary-item">
                 <h3>데이터 테이블 기반 밸런스 관리</h3>
                 <ul>
@@ -215,7 +190,7 @@
                 </ul>
               </div>
 
-              <!-- 4. MCP-based Automation -->
+                            <!-- 4. MCP-based Automation -->
               <div class="tech-summary-item">
                 <h3>MCP 기반 LLM 을 활용한 에디터 자동화 개선</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">Claude와 Unreal MCP 플러그인을 연동해 자연어 명령으로 에디터 작업을 수행하고 사용자 정의 C++ 클래스 연동 과정에서 발생한 문제를 해결했습니다.</p>
@@ -239,6 +214,26 @@
                     <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
                         <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">외부 클래스 변수, 함수 호출</figcaption>
                         <img src="images/EditBlueprint.gif" alt="외부 클래스 변수, 함수 호출" style="width: 100%; display: block; border-radius: 8px;">
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tech-summary-item">
+                <h3>서버 구조 및 통신</h3>
+                <ul>
+                  <div class="architecture-box">
+                    <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
+                      style="width: 100%; height: auto; border-radius: 8px;">
+                  </div>
+                  <li><strong>Network 통신 프로토콜</strong>:<br>
+                    <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
+                      Replication)기능을 사용하여 통신했습니다.</span>
+                  </li>
+                  <li><strong>데이터베이스 접근 분리</strong>:<br>
+                    <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
+                  </li>
+                  <li><strong>비동기 통신 적용</strong>:<br>
+                    <span class="desc">서버 간 통신을 비동기 방식으로 처리하여 게임 플레이 중 프레임 지연이 발생하지 않도록 했습니다.</span>
                   </li>
                 </ul>
               </div>
