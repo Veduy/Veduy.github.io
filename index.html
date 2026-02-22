@@ -37,7 +37,10 @@
         <span class="contact-chip">wonyu1997@naver.com</span>
         <span class="contact-chip">010-6429-8488</span>
         <a href="https://github.com/Veduy" target="_blank" class="contact-chip contact-github">
-          <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
           github.com/Veduy
         </a>
       </div>
@@ -45,7 +48,8 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>게임속 NPC들이 진정한 의미의 <strong>'AI'</strong> 로서 기능하는 순간을 단순히 따라가는 개발자가 아닌 <strong>'그 흐름을 이끄는 개발자'</strong> 가 되는 것이 저의 목표입니다.</p>
+      <p>게임속 NPC들이 진정한 의미의 <strong>'AI'</strong> 로서 기능하는 순간을 단순히 따라가는 개발자가 아닌 <strong>'그 흐름을 이끄는 개발자'</strong> 가 되는 것이
+        저의 목표입니다.</p>
     </section>
 
     <section id="skills">
@@ -86,7 +90,8 @@
       <h2>Projects</h2>
       <div class="project-card">
         <div class="project-header">
-          <h3 class="project-title">Megabonky <a href="https://github.com/Veduy/Megabonky" target="_blank" style="font-size: 0.7em; margin-left: 8px;">GitHub</a></h3>
+          <h3 class="project-title">Megabonky <a href="https://github.com/Veduy/Megabonky" target="_blank"
+              style="font-size: 0.7em; margin-left: 8px;">GitHub</a></h3>
           <div class="project-meta">
             <span class="meta-badge">1인 개발</span>
             <span class="meta-badge">2025.12 ~ 2026.02</span>
@@ -139,107 +144,109 @@
             Technical Implementation
           </summary>
           <div class="tech-details-content">
-             <!-- GAS & Specialized Systems -->
+            <!-- GAS & Specialized Systems -->
             <div class="tech-summary-item">
               <h3>게임 어빌리티 시스템(GAS)사용 게임 매커니즘</h3>
               <ul>
                 <li><strong>서버 타이머 기반 어빌리티 활성화</strong>:<br>
                   <span class="desc">자동 발동형 어빌리티의 특성을 고려해 서버에서 타이머 기반으로 능력을 활성화했습니다.</span>
                 </li>
-                <li><strong>역할별 Attribute Set 설계</strong>:<br>
-                  <span class="desc"> 캐릭터, 무기, 몬스터의 능력치 특성이 달라 각각 별도의 <code>Attribute Set</code>으로 분리해 관리했습니다.</span>
-                </li>
                 <li><strong>Execution Calculation 활용한 데미지 계산</strong>:<br>
-                  <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해 <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
+                  <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해
+                    <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
                 </li>
-                <li><strong>GameplayEffect 기반 능력치 강화</strong>:<br>
-                    <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, 게임 중 능력치가 변경되도록 구성했습니다.
+                <li><strong>캐릭터 능력치 강화</strong>:<br>
+                  <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, Attributes 수치(능력치)를 조정시켰습니다.
                 </li>
               </ul>
             </div>
 
-                          <!-- 2. Data-Driven Systems & Balancing -->
-              <div class="tech-summary-item">
-                <h3>데이터 테이블 기반 밸런스 관리</h3>
-                <ul>
-                  <li><strong>게임 밸런스 관리</strong>:<br>
-                    <span class="desc">몬스터 스텟을 <code>DataTable</code>과 <code>CurveTable</code>로 관리해 게임의 핵심 밸런스를 수정이 편리하도록 설계했습니다.</span>
-                  </li>
-                  <li><strong>랜덤 무기 강화 시스템</strong>:<br>
-                    <span class="desc">강화 옵션을 데이터로 분리해 관리하고 랜덤 선택된 옵션을 무기에 적용하도록 구현했습니다.</span>
-                   <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">무기 강화 옵션 테이블</figcaption>
-                        <img src="images/WeaponUpgradeOptionTable.png" alt="Upgrade Option Table" style="width: 100%; display: block; border-radius: 8px;">
-                      </figure>        
-                  </li>
-                </ul>
-              </div>
+            <!-- 2. Data-Driven Systems & Balancing -->
+            <div class="tech-summary-item">
+              <h3>밸런스 및 콘텐츠 관리</h3>
+              <ul>
+                <li><strong>게임 밸런스 관리</strong>:<br>
+                  <span class="desc">몬스터 스텟을 <code>DataTable</code>과 <code>CurveTable</code>로 관리해 게임의 핵심 밸런스를 수정이 편리하도록
+                    설계했습니다.</span>
+                </li>
+                <li><strong>랜덤 무기 강화 시스템</strong>:<br>
+                  <span class="desc">강화 옵션을 데이터로 분리해 관리하고 랜덤 선택된 옵션을 무기에 적용하도록 구현했습니다.</span>
+                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
+                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">무기 강화 옵션
+                      테이블</figcaption>
+                    <img src="images/WeaponUpgradeOptionTable.png" alt="Upgrade Option Table"
+                      style="width: 100%; display: block; border-radius: 8px;">
+                  </figure>
+                </li>
+                <li><strong>로그 함수 기반 몬스터 스폰 조절</strong>:<br>
+                  <span class="desc">로그 함수를 사용해 게임 진행 시간에 따른 몬스터 스폰수가 급격하게 증가하지 않도록 조절했습니다.</span>
+                  <img src="images/spawn_formula.svg" alt="SpawnNum = Multiplier × ln(1 + Time² / 600) + 3"
+                    style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
+                  <img src="images/spawn_graph.svg" alt="시간에 따른 몬스터 스폰 수 그래프"
+                    style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
+                </li>
+              </ul>
+            </div>
 
-              <!-- 3. Procedural Difficulty & Spawning -->
-              <div class="tech-summary-item">
-                <h3>시간 기반 몬스터 스폰 및 난이도 조절</h3>
-                <ul>
-                  <li><strong>로그 함수 기반 몬스터 스폰 조절</strong>:<br>
-                    <span class="desc">로그 함수를 사용해 게임 진행 시간에 따른 몬스터 스폰수가 급격하게 증가하지 않도록 조절했습니다.</span>
-                    <img src="images/spawn_formula.svg" alt="SpawnNum = Multiplier × ln(1 + Time² / 600) + 3" style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
-                    <img src="images/spawn_graph.svg" alt="시간에 따른 몬스터 스폰 수 그래프" style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
-                  </li>
-                  <li><strong>조건 기반 이벤트 발생</strong>:<br>
-                    <span class="desc">시간 경과 및 특정 조건 달성시 보스 소환, 웨이브 급증, 엘리트 몬스터 출현 이벤트를 <code>GameMode</code> 에서 제어했습니다.</span>
-                  </li>
-                </ul>
-              </div>
-
-                            <!-- 4. MCP-based Automation -->
-              <div class="tech-summary-item">
-                <h3>MCP 기반 LLM 을 활용한 에디터 자동화 개선</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">Claude와 Unreal MCP 플러그인을 연동해 자연어 명령으로 에디터 작업을 수행하고 사용자 정의 C++ 클래스 연동 과정에서 발생한 문제를 해결했습니다.</p>
-                <ul>
-                  <li><strong>엔진 내장 컴포넌트 부착 오류 개선</strong>:<br>
-                    <span class="desc">MCP 플러그인에서 제공하는 기본 컴포넌트 부착 명령어가 엔진 내장 컴포넌트에 대해 올바르게 작동하지 않는 문제를 확인하고, 
+            <!-- 4. MCP-based Automation -->
+            <div class="tech-summary-item">
+              <h3>MCP 기반 LLM 을 활용한 에디터 자동화 개선</h3>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">Claude와 Unreal MCP 플러그인을 연동해 자연어
+                명령으로 에디터 작업을 수행하고 사용자 정의 C++ 클래스 연동 과정에서 발생한 문제를 해결했습니다.</p>
+              <ul>
+                <li><strong>엔진 내장 컴포넌트 부착 오류 개선</strong>:<br>
+                  <span class="desc">MCP 플러그인에서 제공하는 기본 컴포넌트 부착 명령어가 엔진 내장 컴포넌트에 대해 올바르게 작동하지 않는 문제를 확인하고,
                     탐색 경로를 올바르게 수정해 모든 엔진 내장 컴포넌트에 대해 정상적으로 부착이 이루어지도록 개선했습니다.</span>
-                    </li>
-                  <li><strong>커스텀 C++ 클래스 탐색 문제 분석 및 수정</strong>:<br>
-                    <span class="desc">MCP 플러그인에서 블루프린트 생성 시 엔진 기본 클래스만 탐색되던 문제를 확인하고 
-                      사용자 정의 클래스를 엔진에 로드된 UClass 오브젝트 풀에서 탐색해 찾을 수 있도록 플러그인의 클래스 탐색 로직을 수정했습니다.</span>
-                      <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 C++ 클래스를 부모로 BP 클래스 생성</figcaption>
-                        <img src="images/CreateClass.gif" alt="커스텀 C++ 클래스 블루프린트 생성" style="width: 100%; display: block; border-radius: 8px;">
-                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 BP 클래스를 부모로 BP 클래스 생성</figcaption>
-                        <img src="images/CreateClassFromBP.gif" alt="커스텀 BP 클래스 블루프린트 생성" style="width: 100%; margin-bottom: 20px; display: block; border-radius: 8px;">
-                      </figure>
-                  </li>
-                  <li><strong>자연어 기반 블루프린트 작성 워크플로우 개선</strong>:<br>
-                    <span class="desc">클래스 내부의 함수와 변수만 찾을 수 있던 기존 로직을 수정하여 자신 외부 클래스의 변수를 가져오거나, 함수를 호출할 수 있도록 개선했습니다.</span>
-                    <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                        <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">외부 클래스 변수, 함수 호출</figcaption>
-                        <img src="images/EditBlueprint.gif" alt="외부 클래스 변수, 함수 호출" style="width: 100%; display: block; border-radius: 8px;">
-                  </li>
-                </ul>
-              </div>
+                </li>
+                <li><strong>커스텀 C++ 클래스 탐색 문제 분석 및 수정</strong>:<br>
+                  <span class="desc">MCP 플러그인에서 블루프린트 생성 시 엔진 기본 클래스만 탐색되던 문제를 확인하고
+                    사용자 정의 클래스를 엔진에 로드된 UClass 오브젝트 풀에서 탐색해 찾을 수 있도록 플러그인의 클래스 탐색 로직을 수정했습니다.</span>
+                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
+                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 C++
+                      클래스를 부모로 BP 클래스 생성</figcaption>
+                    <img src="images/CreateClass.gif" alt="커스텀 C++ 클래스 블루프린트 생성"
+                      style="width: 100%; display: block; border-radius: 8px;">
+                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 BP
+                      클래스를 부모로 BP 클래스 생성</figcaption>
+                    <img src="images/CreateClassFromBP.gif" alt="커스텀 BP 클래스 블루프린트 생성"
+                      style="width: 100%; margin-bottom: 20px; display: block; border-radius: 8px;">
+                  </figure>
+                </li>
+                <li><strong>자연어 기반 블루프린트 작성 워크플로우 개선</strong>:<br>
+                  <span class="desc">클래스 내부의 함수와 변수만 찾을 수 있던 기존 로직을 수정하여 자신 외부 클래스의 변수를 가져오거나, 함수를 호출할 수 있도록
+                    개선했습니다.</span>
+                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
+                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">외부 클래스
+                      변수, 함수 호출</figcaption>
+                    <img src="images/EditBlueprint.gif" alt="외부 클래스 변수, 함수 호출"
+                      style="width: 100%; display: block; border-radius: 8px;">
+                </li>
+              </ul>
+            </div>
 
-              <div class="tech-summary-item">
-                <h3>서버 구조 및 통신</h3>
-                <ul>
-                  <div class="architecture-box">
-                    <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
-                      style="width: 100%; height: auto; border-radius: 8px;">
-                  </div>
-                  <li><strong>Network 통신 프로토콜</strong>:<br>
-                    <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
-                      Replication)기능을 사용하여 통신했습니다.</span>
-                  </li>
-                  <li><strong>데이터베이스 접근 분리</strong>:<br>
-                    <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
-                  </li>
-                  <li><strong>비동기 통신 적용</strong>:<br>
-                    <span class="desc">서버 간 통신을 비동기 방식으로 처리하여 게임 플레이 중 프레임 지연이 발생하지 않도록 했습니다.</span>
-                  </li>
-                </ul>
-              </div>
+            <div class="tech-summary-item">
+              <h3>서버 구조 및 통신</h3>
+              <ul>
+                <div class="architecture-box">
+                  <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
+                    style="width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <li><strong>Network 통신 프로토콜</strong>:<br>
+                  <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
+                    Replication)기능을 사용하여 통신했습니다.</span>
+                </li>
+                <li><strong>데이터베이스 접근 분리</strong>:<br>
+                  <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로
+                    로드·저장합니다.</span>
+                </li>
+                <li><strong>비동기 통신 적용</strong>:<br>
+                  <span class="desc">서버 간 통신을 비동기 방식으로 처리하여 게임 플레이 중 프레임 지연이 발생하지 않도록 했습니다.</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </details>
+      </div>
+      </details>
       </div>
     </section>
   </main>
