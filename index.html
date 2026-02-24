@@ -150,14 +150,20 @@
               <ul>
                 <li><strong>서버 타이머 기반 어빌리티 활성화</strong>:<br>
                   <span class="desc">자동 발동형 어빌리티의 특성을 고려해 서버에서 타이머 기반으로 능력을 활성화했습니다.</span>
+                      <img src="images/AbilityActivateByTimer.gif" alt="Activate Timer"
+                      style="width: 100%; display: block; border-radius: 8px;">
                 </li>
                 <li><strong>Execution Calculation 활용한 데미지 계산</strong>:<br>
                   <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해
                     <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
+                   <img src="images/RadialDamage.gif" alt="ExecutionCalculation"
+                      style="width: 100%; display: block; border-radius: 8px;">
                 </li>
                 <li><strong>캐릭터 능력치 강화</strong>:<br>
                   <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, Attributes 수치(능력치)를 조정시켰습니다.
-                </li>
+                    <img src="images/WeaponUpgrade.gif" alt="WeaponUpgrade"
+                      style="width: 100%; display: block; border-radius: 8px;">
+                  </li>
               </ul>
             </div>
 
@@ -228,7 +234,7 @@
               <h3>서버 구조 및 통신</h3>
               <ul>
                 <div class="architecture-box">
-                  <img src="images/ServerArchitecture.svg" alt="Server Architecture Diagram"
+                  <img src="images/Mgb Client-Server.png" alt="Server Architecture Diagram"
                     style="width: 100%; height: auto; border-radius: 8px;">
                 </div>
                 <li><strong>Network 통신 프로토콜</strong>:<br>
@@ -236,11 +242,7 @@
                     Replication)기능을 사용하여 통신했습니다.</span>
                 </li>
                 <li><strong>데이터베이스 접근 분리</strong>:<br>
-                  <span class="desc">보안을 위해 웹 서버만 DB에 직접 접근하도록 구성했으며, 게임 서버는 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로
-                    로드·저장합니다.</span>
-                </li>
-                <li><strong>비동기 통신 적용</strong>:<br>
-                  <span class="desc">서버 간 통신을 비동기 방식으로 처리하여 게임 플레이 중 프레임 지연이 발생하지 않도록 했습니다.</span>
+                  <span class="desc"> 웹 서버만 DB에 직접 접근하도록 , 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
                 </li>
               </ul>
             </div>
