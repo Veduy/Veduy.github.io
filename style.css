@@ -727,11 +727,38 @@ code {
   font-family: "Inter", monospace;
   background: #f1f5f9;
   color: var(--primary-color);
-  padding: px 6px;
+  padding: 2px 6px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9em;
   letter-spacing: -0.02em;
+}
+
+/* ===== GitHub-style Code Block ===== */
+pre {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+pre code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  background: transparent;
+  color: #e6edf3;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  display: block;
+  white-space: pre;
+}
+
+pre code .code-comment {
+  color: #8b949e;
 }
 
 /* ===== Lightbox ===== */

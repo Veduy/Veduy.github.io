@@ -249,6 +249,33 @@
       </details>
       </div>
     </section>
+
+    <section id="Unreal Engine AI 활용">
+        <h2>Unreal AI</h2>
+        <p>Unreal Engine의 NNE(Neural Network Engine) 플러그인을 활용하여, 미리 학습된 AI 모델을 엔진에 삽입한 후
+          추론 단계를 거쳐 값을 도출해 내는 과정을 통하여 AI를 언리얼 엔진과 접목시켜 활용.
+        </p>
+        <p>추론 단계 필요한 데이터의 입력 형태 지정과, 추론을 통해 도출된 값의 후처리 단계 처리.</p>
+        <img src="images/MNIST.gif" alt="Unreal-NNE-MNIST"
+          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1.5rem;" class="zoomable">
+        <img src="images/BP_MNISTPad_Init.png" alt="BP_MNISTPad_Init"
+          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1.5rem;" class="zoomable">
+        <img src="images/BP_MNISTPad_InferenceFuncCall.png" alt="BP_MNISTPad_InferenceFuncCall"
+          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1.5rem;" class="zoomable">
+<pre><code class="language-cpp"><span class="code-comment">
+<span class="code-comment">// 모델마다 입력받는 데이터의 형식이 있다.</span>
+<span class="code-comment">// {1,1,28,28} =&gt; 배치크기, 채널, 세로, 가로</span>
+<span class="code-comment">// 한번에(1) (1)개 채널의 28x28 데이터를 넣겠다.</span>
+TArray&lt;uint32&gt; Dims = { 1, 1, 28, 28 };
+TArray&lt;UE::NNE::FTensorShape&gt; InputShapes;
+InputShapes.Add(UE::NNE::FTensorShape::Make(Dims));
+const auto ShapeStatus = ModelInstance->SetInputTensorShapes(InputShapes);
+
+<span class="code-comment">// 0부터 9까지 순서대로 점수를 비교해서 최고 점수인 숫자를 반환.</span>
+OutDigit = PredDigit;
+OutScore = Best;
+      </code></pre>
+      </section>
   </main>
 
   <div class="lightbox" id="lightbox">
@@ -260,7 +287,7 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
 
-    document.querySelectorAll('.tech-details img, .project-media img').forEach(img => {
+    document.querySelectorAll('.tech-details img, .project-media img, img.zoomable').forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
