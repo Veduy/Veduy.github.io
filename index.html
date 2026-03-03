@@ -99,15 +99,6 @@
             <span class="meta-badge">2025.12 ~ 2026.02</span>
           </div>
         </div>
-        <br>
-        <div class="project-video"
-          style="margin-bottom: 1.5rem; border-radius: 3px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); aspect-ratio: 16 / 9;">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5Y65bu-fvtQ" title="포트폴리오 영상"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block;"></iframe>
-        </div>
-
         <div class="project-media">
           <div class="slideshow-container">
             <div class="slide active">
@@ -141,12 +132,14 @@
             <li><strong>JSON</strong>웹서버와 게임서버간 <strong>HTTP</strong>통신</li>
             <li><strong>DB</strong>유저 데이터 관리</li>
           </ul>
+          <div class="project-video"
+            style="margin-bottom: 1.5rem; border-radius: 3px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); aspect-ratio: 16 / 9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5Y65bu-fvtQ" title="포트폴리오 영상"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block;"></iframe>
+          </div>
         </div>
-
-        <!-- <a href="https://youtube.com" target="_blank" class="project-link tech-toggle">
-          프로젝트 영상 보기
-        </a> -->
-
 
         <details class="tech-details" open>
           <summary class="project-link tech-toggle">
@@ -327,7 +320,6 @@ OutScore = Best;
 
     // Slideshow functionality
     let currentSlideIndex = 0;
-    let slideInterval;
 
     function showSlide(index) {
       const slides = document.querySelectorAll('.slide');
@@ -346,36 +338,28 @@ OutScore = Best;
 
       slides[currentSlideIndex].classList.add('active');
       dots[currentSlideIndex].classList.add('active');
+
+      // 슬라이드가 바뀔 때 GIF 애니메이션이 처음부터 다시 재생되도록
+      // 현재 슬라이드의 img src를 새로고침(재귀 없이)합니다.
+      const currentImg = slides[currentSlideIndex].querySelector('img');
+      const imgSrc = currentImg.getAttribute('src');
+      currentImg.setAttribute('src', '');
+      setTimeout(() => {
+        currentImg.setAttribute('src', imgSrc);
+      }, 10);
     }
 
     function changeSlide(direction) {
       showSlide(currentSlideIndex + direction);
-      resetSlideTimer();
     }
 
     function currentSlide(index) {
       showSlide(index);
-      resetSlideTimer();
-    }
-
-    function autoSlide() {
-      currentSlideIndex++;
-      showSlide(currentSlideIndex);
-    }
-
-    function startSlideTimer() {
-      slideInterval = setInterval(autoSlide, 5000); // 5초마다 자동 전환
-    }
-
-    function resetSlideTimer() {
-      clearInterval(slideInterval);
-      startSlideTimer();
     }
 
     // 페이지 로드 시 슬라이드쇼 시작
     document.addEventListener('DOMContentLoaded', () => {
       showSlide(0);
-      startSlideTimer();
     });
   </script>
 </body>

@@ -426,6 +426,8 @@ ul li {
 
 .slide img {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: 14px;
   box-shadow: var(--shadow-md);
 }
