@@ -28,10 +28,18 @@
 
   <main class="container">
     <section class="intro">
-      <img src="이력서사진.png" alt="원유찬 프로필 사진"
-        style="display: block; width: 160px; border-radius: 16px; margin-bottom: 0.8rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1); object-fit: cover;">
-      <p class="intro-label">Unreal Engine Programmer</p>
       <h1>안녕하세요.<br>지원자 <span class="highlight">원유찬</span>입니다.</h1>
+      <div id="about" style="display: flex; gap: 24px; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap;">
+        <img src="이력서사진.png" alt="원유찬 프로필 사진"
+          style="display: block; width: 160px; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); object-fit: cover; flex-shrink: 0;">
+        <p
+          style="margin: 0; flex: 1 1 300px; font-size: 1.5rem; color: var(--text-muted); line-height: 1.7; word-break: keep-all;">
+          게임속 NPC들이 진정한 의미의 <strong>'AI'</strong> 로서 기능하는 순간을 단순히 따라가는 개발자가 아닌 <strong>'그 흐름을 이끄는 개발자'</strong> 가 되는 것이
+          저의 목표입니다.
+        </p>
+      </div>
+      <p class="intro-label">Unreal Engine Programmer</p>
+
       <div class="intro-cta">
         <a href="#projects" class="btn-primary">프로젝트 보기</a>
       </div>
@@ -46,12 +54,6 @@
           github.com/Veduy
         </a>
       </div>
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>게임속 NPC들이 진정한 의미의 <strong>'AI'</strong> 로서 기능하는 순간을 단순히 따라가는 개발자가 아닌 <strong>'그 흐름을 이끄는 개발자'</strong> 가 되는 것이
-        저의 목표입니다.</p>
     </section>
 
     <section id="skills">
@@ -74,7 +76,7 @@
         <li>
           <span class="skill-icon">🤖</span>
           <div>
-            <strong>MCP</strong>
+            <strong>AI</strong>
             <span class="skill-desc-bold"><code>Unreal Editor Automation</code></span>
           </div>
         </li>
@@ -119,18 +121,14 @@
             <span class="dot" onclick="currentSlide(2)"></span>
           </div>
         </div>
-
-        <p class="project-desc">
-          서버-클라이언트 구조에 대한 깊은 이해를 목표로 진행한 1인 개발 프로젝트입니다.<br>
-        </p>
-
         <div class="project-features">
           <h4>주요 기능</h4>
           <ul class="feature-list">
-            <li><strong>MCP</strong>에디터 자동화</li>
-            <li><strong>GAS</strong>캐릭터 능력, 무기 시스템</li>
-            <li><strong>JSON</strong>웹서버와 게임서버간 <strong>HTTP</strong>통신</li>
-            <li><strong>DB</strong>유저 데이터 관리</li>
+            <li><strong>AI 활용</strong> MCP 기반 에디터 자동화</li>
+            <li><strong>GAS</strong> 활용 게임 전투 시스템</li>
+            <li><strong>랜덤</strong> 무기 강화 옵션 생성 시스템</li>
+            <li><strong>Dedicated Server</strong> 멀티 플레이 구현</li>
+            <li><strong>DB</strong> 웹서버 통한 로그인 인증 프로토콜 구현</li>
           </ul>
           <div class="project-video"
             style="margin-bottom: 1.5rem; border-radius: 3px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); aspect-ratio: 16 / 9;">
@@ -198,9 +196,11 @@
                     style="width: 100%; display: block; border-radius: 8px;">
                 </li>
                 <li><strong>캐릭터 능력치 강화</strong>:<br>
-                  <span class="desc"> 무기 강화와 캐릭터 성장에 <code>GameplayEffect</code>를 사용해, Attributes 수치(능력치)를 조정시켰습니다.
-                    <img src="images/WeaponUpgrade.gif" alt="WeaponUpgrade"
-                      style="width: 100%; display: block; border-radius: 8px;">
+                  <span class="desc"> 서버에서 무기 강화 옵션 데이터 생성후 클라이언트 UI 업데이트<br>
+                    클라이언트에서 무기 강화 옵션 선택 후 서버에서 <code>GameplayEffect</code>를 사용해 <code>Attributes</code> 수치를 조정합니다.
+                  </span>
+                  <img src="images/WeaponUpgrade.gif" alt="WeaponUpgrade"
+                    style="width: 100%; display: block; border-radius: 8px;">
                 </li>
               </ul>
             </div>
@@ -272,28 +272,14 @@
         <img src="images/BP_MNISTPad_Init.png" alt="BP_MNISTPad_Init"
           style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1rem;" class="zoomable">
         <figcaption class="nne-caption">
-          NNE 모델 중 MNIST 모델을 활용한 예시입니다.
+          28x28의 개의 버튼을 생성, 각 버튼에 매칭되는 28x28의 float 배열에 입력값을 저장합니다.
         </figcaption>
         <img src="images/BP_MNISTPad_InferenceFuncCall.png" alt="BP_MNISTPad_InferenceFuncCall"
           style="width: 100%; display: block; border-radius: 8px; margin-bottom: 0.5rem;" class="zoomable">
         <figcaption class="nne-caption">
-          NNE 모델 중 MNIST 모델을 활용한 예시입니다.
+          블루프린트에서 C++ 추론 함수를 호출합니다.
         </figcaption>
       </figure>
-
-      <pre><code class="language-cpp"><span class="code-comment">
-<span class="code-comment">// 모델마다 입력받는 데이터의 형식이 있다.</span>
-<span class="code-comment">// {1,1,28,28} =&gt; 배치크기, 채널, 세로, 가로</span>
-<span class="code-comment">// 한번에(1) (1)개 채널의 28x28 데이터를 넣겠다.</span></span>
-TArray&lt;uint32&gt; Dims = { 1, 1, 28, 28 };
-TArray&lt;UE::NNE::FTensorShape&gt; InputShapes;
-InputShapes.Add(UE::NNE::FTensorShape::Make(Dims));
-const auto ShapeStatus = ModelInstance->SetInputTensorShapes(InputShapes);
-
-<span class="code-comment">// 0부터 9까지 순서대로 점수를 비교해서 최고 점수인 숫자를 반환.</span>
-OutDigit = PredDigit;
-OutScore = Best;
-      </code></pre>
     </section>
   </main>
 
