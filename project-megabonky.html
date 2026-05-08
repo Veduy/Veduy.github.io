@@ -21,6 +21,7 @@
         <a href="index.html#about">About</a>
         <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
+        <a href="resume.html">Resume</a>
         <a href="https://github.com/Veduy/Megabonky" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
@@ -52,17 +53,14 @@
         <h2>프로젝트 개요</h2>
         <p>
           전투, 성장, 멀티플레이를 포함한 게임 시스템을 구현하면서 핵심 로직은 서버 권한을 기준으로 처리하고,
-          클라이언트는 UI와 입력 흐름에 집중하도록 역할을 분리했습니다. 기능을 단순히 구현하는 것보다,
+          (클라이언트는 UI와 입력 흐름에 집중하도록 역할을 분리했습니다.)     기능을 단순히 구현하는 것보다,
           이후 수정과 확장이 쉬운 구조를 만드는 것을 목표로 했습니다.
         </p>
-      </div>
 
-      <div class="detail-block">
-        <h2>설계 및 구현</h2>
         <ul class="detail-list">
           <li>
             <strong>Gameplay Ability System 기반 게임플레이 구조</strong><br>
-            서버 권한 기반의 전투 시스템에서 스킬 발동, 피해 처리, 쿨타임, 상태이상 로직을 표준화된 구조 안에서 확장성 있게 관리하는데 GAS가 효용성이 높다 판단했습니다.
+            전투 시스템에서 스킬 발동, 피해 처리, 쿨타임, 상태이상 로직을 서버 권한 기반의 표준화된 구조로 관리가 가능하고, Megabonky 프로젝트의 기능 확장에 유연하다 생각되어 GAS를 적용했습니다.
           </li>
           <li>
             <strong>멀티플레이 구조</strong><br>
@@ -77,7 +75,12 @@
 
       <div class="detail-block">
         <h2>게임 플레이</h2>
-
+        <ul class="detail-list">
+          <li>
+            <strong>GAS 활용</strong></br>
+            ExecutionCalculation을 활용해 스킬별로 분산될 수 있는 데미지 계산 로직을 공통화했습니다. 공격력, 방어력, 스킬 계수, 상태 효과를 반영한 최종 피해 계산을 별도 로직으로 분리하여 신규 스킬에서도 동일한 피해 처리 파이프라인을 재사용할 수 있도록 했고, 이를 통해 중복 구현을 줄이며 전투 밸런싱과 유지보수성을 개선했습니다.
+          </li>
+        </ul>
       </div>
 
 
