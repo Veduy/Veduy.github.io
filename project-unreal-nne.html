@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unreal NNE | 유원찬 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Wonchan Yoo</a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://github.com/Veduy" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="detail-hero">
+      <div class="detail-hero-inner">
+        <a class="back-link" href="index.html#projects">← Projects</a>
+        <p class="detail-kicker">AI Integration</p>
+        <h1 class="detail-title">Unreal NNE</h1>
+        <p class="detail-summary">
+          Unreal Engine의 NNE(Neural Network Engine) 플러그인을 사용해 사전 학습된 AI 모델을 엔진에 삽입하고,
+          Blueprint에서 추론 함수를 호출해 결과를 확인하는 실험 프로젝트입니다.
+        </p>
+        <div class="detail-meta">
+          <span>Unreal Engine</span>
+          <span>NNE</span>
+          <span>MNIST</span>
+          <span>Blueprint</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="detail-cover">
+      <img src="images/MNIST.gif" alt="Unreal NNE MNIST 추론 화면">
+    </div>
+
+    <section class="detail-content">
+      <div class="detail-block">
+        <h2>프로젝트 개요</h2>
+        <p>
+          미리 학습된 MNIST 모델을 Unreal Engine 내부에서 실행하고, 입력 데이터의 형태 지정부터 추론 결과 처리까지
+          엔진 환경에서 필요한 흐름을 검증했습니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2>주요 구현</h2>
+        <ul class="detail-list">
+          <li><strong>입력 데이터 구성</strong><br>28x28 버튼 입력을 float 배열로 변환해 모델 입력 형식에 맞게 전달했습니다.</li>
+          <li><strong>NNE 추론 호출</strong><br>C++ 추론 함수를 Blueprint에서 호출할 수 있도록 연결했습니다.</li>
+          <li><strong>결과 처리</strong><br>모델 출력값을 후처리해 사용자가 입력한 숫자 예측 결과를 확인할 수 있게 구성했습니다.</li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h2>구현 화면</h2>
+        <img class="wide-media" src="images/BP_MNISTPad_Init.png" alt="MNIST 입력 버튼 초기화 Blueprint">
+        <br>
+        <img class="wide-media" src="images/BP_MNISTPad_InferenceFuncCall.png" alt="MNIST 추론 함수 호출 Blueprint">
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
