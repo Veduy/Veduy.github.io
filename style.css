@@ -317,7 +317,8 @@ h1 {
   align-items: flex-start;
 }
 
-.contact-links a {
+.contact-links a,
+.contact-links span {
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.98rem;
   transition: color var(--transition);
