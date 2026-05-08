@@ -222,27 +222,89 @@ h1 {
   font-size: 0.95rem;
 }
 
+.project-carousel {
+  position: relative;
+  --carousel-side: max(20px, calc((100vw - 1120px) / 2));
+  --carousel-gap: 18px;
+  --carousel-visible: calc(100vw - var(--carousel-side));
+  margin-right: calc(var(--carousel-side) * -1);
+}
+
+.project-carousel::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 18px;
+  width: min(120px, 14vw);
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, rgba(245, 245, 247, 0), var(--bg));
+}
+
 .project-row {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(340px, 520px);
-  gap: 18px;
+  grid-auto-columns: clamp(420px, calc((var(--carousel-visible) - (var(--carousel-gap) * 2)) / 2.5), 560px);
+  gap: var(--carousel-gap);
   overflow-x: auto;
-  padding: 4px 0 18px;
+  padding: 4px var(--carousel-side) 18px 0;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  scrollbar-width: none;
 }
 
 .project-row::-webkit-scrollbar {
-  height: 8px;
+  display: none;
 }
 
-.project-row::-webkit-scrollbar-thumb {
-  background: #c7c7cc;
-  border-radius: 999px;
+.carousel-controls {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(var(--carousel-side) * -1 + 18px);
+  right: 18px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.carousel-button {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted-strong);
+  background: rgba(232, 232, 237, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background var(--transition), color var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.carousel-button span {
+  display: block;
+  margin-top: -2px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.carousel-button:hover:not(:disabled) {
+  color: var(--text);
+  background: #d9d9df;
+  transform: scale(1.04);
+}
+
+.carousel-button:disabled {
+  cursor: default;
+  opacity: 0.38;
 }
 
 .project-tile {
-  min-height: 580px;
+  min-height: 560px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -260,12 +322,12 @@ h1 {
 }
 
 .project-tile>div {
-  padding: 30px 30px 18px;
+  padding: 28px 28px 18px;
 }
 
 .project-tile h3 {
   margin-bottom: 10px;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
   line-height: 1.05;
 }
 
@@ -531,12 +593,33 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .project-carousel {
+    --carousel-side: 16px;
+    margin-right: -16px;
+  }
+
+  .project-carousel::after {
+    bottom: 18px;
+    width: 52px;
+  }
+
   .project-row {
     grid-auto-columns: minmax(278px, 86vw);
+    padding-right: 16px;
   }
 
   .project-tile {
     min-height: 500px;
+  }
+
+  .carousel-controls {
+    left: calc(var(--carousel-side) * -1 + 10px);
+    right: 10px;
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
   }
 
   .project-tile>div {

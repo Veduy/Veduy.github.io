@@ -73,27 +73,40 @@
       <div class="section-inner">
         <div class="section-heading">
           <p class="section-kicker">Projects</p>
-          <h2>최근 프로젝트. 문제를 어떻게 풀었는지.</h2>
+          <h2>최근 프로젝트.</h2>
         </div>
 
-        <div class="project-row">
-          <a class="project-tile project-tile-dark" href="project-megabonky.html" aria-label="Megabonky 상세 페이지로 이동">
-            <div>
-              <p class="tile-kicker">Game Project</p>
-              <h3>Megabonky</h3>
-              <p>서버 권한 기반 전투, 데이터 기반 밸런싱, MCP 자동화 개선으로 안정성과 개발 편의성을 높인 Unreal Engine 프로젝트.</p>
-            </div>
-            <img src="images/InGame.gif" alt="Megabonky 게임 플레이 화면">
-          </a>
+        <div class="project-carousel" data-carousel>
+          <div class="project-row">
+            
+            <a class="project-tile project-tile-dark" href="project-megabonky.html" aria-label="Megabonky 상세 페이지로 이동">
+              <div>
+                <p class="tile-kicker">Game Project</p>
+                <h3>Megabonky</h3>
+                <p>서버 권한 기반 전투, 데이터 기반 밸런싱, MCP 자동화 개선으로 안정성과 개발 편의성을 높인 Unreal Engine 프로젝트.</p>
+              </div>
+              <img src="images/InGame.gif" alt="Megabonky 게임 플레이 화면">
+            </a>
 
-          <a class="project-tile" href="project-unreal-nne.html" aria-label="Unreal NNE 상세 페이지로 이동">
-            <div>
-              <p class="tile-kicker">AI Integration</p>
-              <h3>Unreal NNE</h3>
-              <p>학습된 AI 모델을 Unreal Engine 안에서 추론하기 위해 입력 구성, C++ 호출, 결과 처리 흐름을 검증한 프로젝트.</p>
-            </div>
-            <img src="images/MNIST.gif" alt="Unreal NNE MNIST 추론 화면">
-          </a>
+            <a class="project-tile" href="project-unreal-nne.html" aria-label="Unreal NNE 상세 페이지로 이동">
+              <div>
+                <p class="tile-kicker">AI Integration</p>
+                <h3>Unreal NNE</h3>
+                <p>학습된 AI 모델을 Unreal Engine 안에서 추론하기 위해 입력 구성, C++ 호출, 결과 처리 흐름을 검증한 프로젝트.</p>
+              </div>
+              <img src="images/MNIST.gif" alt="Unreal NNE MNIST 추론 화면">
+            </a>
+
+          </div>
+
+          <div class="carousel-controls" aria-label="Project carousel controls">
+            <button class="carousel-button" type="button" aria-label="Previous project" data-carousel-prev>
+              <span aria-hidden="true">&#8249;</span>
+            </button>
+            <button class="carousel-button" type="button" aria-label="Next project" data-carousel-next>
+              <span aria-hidden="true">&#8250;</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -112,6 +125,36 @@
       </div>
     </section>
   </main>
+  <script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const row = carousel.querySelector(".project-row");
+      const previous = carousel.querySelector("[data-carousel-prev]");
+      const next = carousel.querySelector("[data-carousel-next]");
+
+      if (!row || !previous || !next) {
+        return;
+      }
+
+      const updateControls = () => {
+        const maxScroll = row.scrollWidth - row.clientWidth;
+        previous.disabled = row.scrollLeft <= 2;
+        next.disabled = row.scrollLeft >= maxScroll - 2;
+      };
+
+      const scrollByCard = (direction) => {
+        const tile = row.querySelector(".project-tile");
+        const gap = parseFloat(getComputedStyle(row).columnGap || 0);
+        const amount = tile ? tile.getBoundingClientRect().width + gap : row.clientWidth * 0.8;
+        row.scrollBy({ left: amount * direction, behavior: "smooth" });
+      };
+
+      previous.addEventListener("click", () => scrollByCard(-1));
+      next.addEventListener("click", () => scrollByCard(1));
+      row.addEventListener("scroll", updateControls, { passive: true });
+      window.addEventListener("resize", updateControls);
+      updateControls();
+    });
+  </script>
 </body>
 
 </html>
