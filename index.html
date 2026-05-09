@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>원유찬 포트폴리오</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YuChan Won</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,336 +16,143 @@
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">원유찬</a>
+      <a href="index.html" class="nav-logo">YuChan Won</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="https://github.com/Veduy" target="_blank">GitHub</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://github.com/Veduy" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </nav>
 
-  <main class="container">
-    <section class="intro">
-      <h1>안녕하세요.<br>지원자 <span class="highlight">원유찬</span>입니다.</h1>
-      <div id="about" style="display: flex; gap: 24px; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap;">
-        <img src="이력서사진.png" alt="원유찬 프로필 사진"
-          style="display: block; width: 160px; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); object-fit: cover; flex-shrink: 0;">
-        <p
-          style="margin: 0; flex: 1 1 300px; font-size: 1.5rem; color: var(--text-muted); line-height: 1.7; word-break: keep-all;">
-          게임속 NPC들이 진정한 의미의 <strong>'AI'</strong> 로서 기능하는 순간을 단순히 따라가는 개발자가 아닌 <strong>'그 흐름을 이끄는 개발자'</strong> 가 되는 것이
-          저의 목표입니다.
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-inner">
+        <p class="eyebrow">Unreal Engine Programmer</p>
+        <h1>게임 시스템과 AI 워크플로우를 설계하는 개발자, 원유찬입니다.</h1>
+        <p class="hero-copy">
+          Unreal Engine, Unity, AI 활용을 중심으로</br>
+플레이 경험과 개발 생산성을 함께 개선하는 작업에 집중하고 있습니다.
         </p>
-      </div>
-      <p class="intro-label">Unreal Engine Programmer</p>
-
-      <div class="intro-cta">
-        <a href="#projects" class="btn-primary">프로젝트 보기</a>
-      </div>
-      <div class="intro-contact">
-        <span class="contact-chip">wonyu1997@naver.com</span>
-        <span class="contact-chip">010-6429-8488</span>
-        <a href="https://github.com/Veduy" target="_blank" class="contact-chip contact-github">
-          <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-          </svg>
-          github.com/Veduy
-        </a>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#projects">프로젝트 보기</a>
+        </div>
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-grid">
-        <li>
-          <span class="skill-icon">🎮</span>
-          <div>
-            <strong>Unreal Engine</strong>
-            <span class="skill-desc-bold"><code>GAS</code></span>
-          </div>
-        </li>
-        <li>
-          <span class="skill-icon">🌐</span>
-          <div>
-            <strong>Network</strong>
-            <span class="skill-desc-bold"><code>WinSock</code> </code><code>Flatbuffers</code> <code>JSON</code></span>
-          </div>
-        </li>
-        <li>
-          <span class="skill-icon">🤖</span>
-          <div>
-            <strong>AI</strong>
-            <span class="skill-desc-bold"><code>Unreal Editor Automation</code></span>
-          </div>
-        </li>
-        <li>
-          <span class="skill-icon">🗄️</span>
-          <div>
-            <strong>Database</strong>
-            <span class="skill-desc-bold"><code>MySQL</code></span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">Megabonky <a href="https://github.com/Veduy/Megabonky" target="_blank"
-              style="font-size: 0.7em; margin-left: 8px;">GitHub</a></h3>
-          <div class="project-meta">
-            <span class="meta-badge">1인 개발</span>
-            <span class="meta-badge">2025.12 ~ 2026.02</span>
-          </div>
+    <section class="section section-muted" id="skills">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="section-kicker">Skills</p>
+          <h2>핵심 기술.</h2>
         </div>
-        <div class="project-media">
-          <div class="slideshow-container">
-            <div class="slide active">
-              <img src="images/InGame.gif" alt="InGame Gameplay">
-            </div>
-            <div class="slide">
-              <img src="images/CreateClass.gif" alt="CreateClass Demo">
-            </div>
-            <div class="slide">
-              <img src="images/EditBlueprint.gif" alt="EditBlueprint Demo">
-            </div>
-            <button class="slide-btn prev" onclick="changeSlide(-1)">❮</button>
-            <button class="slide-btn next" onclick="changeSlide(1)">❯</button>
-          </div>
-          <div class="slide-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-          </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Unreal Engine</h3>
+            <p>GAS, Gameplay Framework, Blueprint, Editor Workflow</p>
+          </article>
+          <article class="skill-card">
+            <h3>Network</h3>
+            <p>Dedicated Server, Replication, WinSock, HTTP API</p>
+          </article>
+          <article class="skill-card">
+            <h3>AI Workflow</h3>
+            <p>MCP 기반 에디터 자동화, Unreal NNE, 모델 추론 연동</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data & Backend</h3>
+            <p>MySQL, DataTable, CurveTable, JSON, FlatBuffers</p>
+          </article>
         </div>
-        <div class="project-features">
-          <h4>주요 기능</h4>
-          <ul class="feature-list">
-            <li><strong>AI 활용</strong> MCP 기반 에디터 자동화</li>
-            <li><strong>GAS</strong> 활용 게임 전투 시스템</li>
-            <li><strong>랜덤</strong> 무기 강화 옵션 생성 시스템</li>
-            <li><strong>Dedicated Server</strong> 멀티 플레이 구현</li>
-            <li><strong>DB</strong> 웹서버 통한 로그인 인증 프로토콜 구현</li>
-          </ul>
-          <div class="project-video"
-            style="margin-bottom: 1.5rem; border-radius: 3px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); aspect-ratio: 16 / 9;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5Y65bu-fvtQ" title="포트폴리오 영상"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block;"></iframe>
-          </div>
-        </div>
-
-        <details class="tech-details" open>
-          <summary class="project-link tech-toggle">
-            Technical Implementation
-          </summary>
-          <div class="tech-details-content">
-            <!-- 4. MCP-based Automation -->
-            <div class="tech-summary-item">
-              <h3>MCP 기반 LLM 을 활용한 에디터 자동화 개선</h3>
-              <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 400;">Claude와 Unreal MCP 플러그인을 연동해 자연어
-                명령으로 에디터 작업을 수행하고 사용자 정의 C++ 클래스 연동 과정에서 발생한 문제를 해결했습니다.</p>
-              <ul>
-                <li><strong>엔진 내장 컴포넌트 부착 오류 개선</strong>:<br>
-                  <span class="desc">MCP 플러그인에서 제공하는 기본 컴포넌트 부착 명령어가 엔진 내장 컴포넌트에 대해 올바르게 작동하지 않는 문제를 확인하고,
-                    탐색 경로를 올바르게 수정해 모든 엔진 내장 컴포넌트에 대해 정상적으로 부착이 이루어지도록 개선했습니다.</span>
-                </li>
-                <li><strong>커스텀 C++ 클래스 탐색 문제 분석 및 수정</strong>:<br>
-                  <span class="desc">MCP 플러그인에서 블루프린트 생성 시 엔진 기본 클래스만 탐색되던 문제를 확인하고
-                    사용자 정의 클래스를 엔진에 로드된 UClass 오브젝트 풀에서 탐색해 찾을 수 있도록 플러그인의 클래스 탐색 로직을 수정했습니다.</span>
-                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 C++
-                      클래스를 부모로 BP 클래스 생성</figcaption>
-                    <img src="images/CreateClass.gif" alt="커스텀 C++ 클래스 블루프린트 생성"
-                      style="width: 100%; display: block; border-radius: 8px;">
-                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">커스텀 BP
-                      클래스를 부모로 BP 클래스 생성</figcaption>
-                    <img src="images/CreateClassFromBP.gif" alt="커스텀 BP 클래스 블루프린트 생성"
-                      style="width: 100%; margin-bottom: 20px; display: block; border-radius: 8px;">
-                  </figure>
-                </li>
-                <li><strong>자연어 기반 블루프린트 작성 워크플로우 개선</strong>:<br>
-                  <span class="desc">클래스 내부의 함수와 변수만 찾을 수 있던 기존 로직을 수정하여 자신 외부 클래스의 변수를 가져오거나, 함수를 호출할 수 있도록
-                    개선했습니다.</span>
-                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">외부 클래스
-                      변수, 함수 호출</figcaption>
-                    <img src="images/EditBlueprint.gif" alt="외부 클래스 변수, 함수 호출"
-                      style="width: 100%; display: block; border-radius: 8px;">
-                </li>
-              </ul>
-            </div>
-
-            <!-- GAS & Specialized Systems -->
-            <div class="tech-summary-item">
-              <h3>게임 어빌리티 시스템(GAS)사용 게임 매커니즘</h3>
-              <ul>
-                <li><strong>서버 타이머 기반 어빌리티 활성화</strong>:<br>
-                  <span class="desc">자동 발동형 어빌리티의 특성을 고려해 서버에서 타이머 기반으로 능력을 활성화했습니다.</span>
-                  <img src="images/AbilityActivateByTimer.gif" alt="Activate Timer"
-                    style="width: 100%; display: block; border-radius: 8px;">
-                </li>
-                <li><strong>Execution Calculation 활용한 데미지 계산</strong>:<br>
-                  <span class="desc">데미지 GameplayEffect 적용 시 캐릭터 스탯과 무기 옵션을 함께 고려하기 위해
-                    <code>ExecutionCalculation</code>을 사용해 데미지를 계산했습니다.</span>
-                  <img src="images/RadialDamage.gif" alt="ExecutionCalculation"
-                    style="width: 100%; display: block; border-radius: 8px;">
-                </li>
-                <li><strong>캐릭터 능력치 강화</strong>:<br>
-                  <span class="desc"> 서버에서 무기 강화 옵션 데이터 생성후 클라이언트 UI 업데이트<br>
-                    클라이언트에서 무기 강화 옵션 선택 후 서버에서 <code>GameplayEffect</code>를 사용해 <code>Attributes</code> 수치를 조정합니다.
-                  </span>
-                  <img src="images/WeaponUpgrade.gif" alt="WeaponUpgrade"
-                    style="width: 100%; display: block; border-radius: 8px;">
-                </li>
-              </ul>
-            </div>
-
-            <div class="tech-summary-item">
-              <h3>서버 구조 및 통신</h3>
-              <ul>
-                <div class="architecture-box">
-                  <img src="images/Mgb Client-Server.png" alt="Server Architecture Diagram"
-                    style="width: 100%; height: auto; border-radius: 8px;">
-                </div>
-                <li><strong>Network 통신 프로토콜</strong>:<br>
-                  <span class="desc">클라이언트,게임서버는 웹서버와 RESTful API기반의 HTTP 비동기 통신을, 실시간 게임 플레이는 UDP 기반의 엔진 내장 네트워크(RPC,
-                    Replication)기능을 사용하여 통신했습니다.</span>
-                </li>
-                <li><strong>데이터베이스 접근 분리</strong>:<br>
-                  <span class="desc"> 웹 서버만 DB에 직접 접근하도록 , 웹 서버의 API를 통해 플레이어 데이터를 비동기적으로 로드·저장합니다.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- 2. Data-Driven Systems & Balancing -->
-            <div class="tech-summary-item">
-              <h3>밸런스 및 콘텐츠 관리</h3>
-              <ul>
-                <li><strong>게임 밸런스 관리</strong>:<br>
-                  <span class="desc">몬스터 스텟을 <code>DataTable</code>과 <code>CurveTable</code>로 관리해 게임의 핵심 밸런스를 수정이 편리하도록
-                    설계했습니다.</span>
-                </li>
-                <li><strong>랜덤 무기 강화 시스템</strong>:<br>
-                  <span class="desc">강화 옵션을 데이터로 분리해 관리하고 랜덤 선택된 옵션을 무기에 적용하도록 구현했습니다.</span>
-                  <figure style="margin: 8px 0 0; padding: 0; max-width: 600px;">
-                    <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 20px; font-weight: 500;">무기 강화 옵션
-                      테이블</figcaption>
-                    <img src="images/WeaponUpgradeOptionTable.png" alt="Upgrade Option Table"
-                      style="width: 100%; display: block; border-radius: 8px;">
-                  </figure>
-                </li>
-                <li><strong>로그 함수 기반 몬스터 스폰 조절</strong>:<br>
-                  <span class="desc">로그 함수를 사용해 게임 진행 시간에 따른 몬스터 스폰수가 급격하게 증가하지 않도록 조절했습니다.</span>
-                  <img src="images/spawn_formula.svg" alt="SpawnNum = Multiplier × ln(1 + Time² / 600) + 3"
-                    style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
-                  <img src="images/spawn_graph.svg" alt="시간에 따른 몬스터 스폰 수 그래프"
-                    style="width: 100%; max-width: 500px; margin-top: 8px; display: block;">
-                </li>
-              </ul>
-            </div>
-          </div>
-      </div>
-      </details>
       </div>
     </section>
 
-    <section id="Unreal Engine AI 활용">
-      <h2>Unreal NNE</h2>
-      <p class="project-desc" style="padding: 0; margin-bottom: 12px;">
-        Unreal Engine의 NNE(Neural Network Engine) 플러그인을 활용하여, 미리 학습된 AI 모델을 엔진에 삽입한 후
-        추론 단계를 거쳐 값을 도출해 내는 과정을 통하여 AI를 언리얼 엔진과 접목시켜 활용했습니다.
-      </p>
-      <p class="project-desc" style="padding: 0; margin-bottom: 24px;">
-        추론 단계에서 필요한 데이터의 입력 형태 지정과, 추론을 통해 도출된 값의 후처리 단계를 처리합니다.
-      </p>
-      <figure style="margin: 0; padding: 0;">
-        <img src="images/MNIST.gif" alt="Unreal-NNE-MNIST"
-          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1rem;" class="zoomable">
-        <figcaption class="nne-caption">
-          NNE 모델 중 MNIST 모델을 활용한 예시입니다.
-        </figcaption>
-        <img src="images/BP_MNISTPad_Init.png" alt="BP_MNISTPad_Init"
-          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 1rem;" class="zoomable">
-        <figcaption class="nne-caption">
-          28x28의 개의 버튼을 생성, 각 버튼에 매칭되는 28x28의 float 배열에 입력값을 저장합니다.
-        </figcaption>
-        <img src="images/BP_MNISTPad_InferenceFuncCall.png" alt="BP_MNISTPad_InferenceFuncCall"
-          style="width: 100%; display: block; border-radius: 8px; margin-bottom: 0.5rem;" class="zoomable">
-        <figcaption class="nne-caption">
-          블루프린트에서 C++ 추론 함수를 호출합니다.
-        </figcaption>
-      </figure>
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="section-kicker">Projects</p>
+          <h2>최근 프로젝트.</h2>
+        </div>
+
+        <div class="project-carousel" data-carousel>
+          <div class="project-row">
+            
+            <a class="project-tile project-tile-dark" href="project-megabonky.html" aria-label="Megabonky 상세 페이지로 이동">
+              <div>
+                <p class="tile-kicker">Game Project</p>
+                <h3>Megabonky</h3>
+                <p>서버 권한 기반 전투, 데이터 기반 밸런싱, MCP 자동화 개선으로 안정성과 개발 편의성을 높인 Unreal Engine 프로젝트.</p>
+              </div>
+              <img src="images/InGame.gif" alt="Megabonky 게임 플레이 화면">
+            </a>
+
+            <a class="project-tile" href="project-unreal-nne.html" aria-label="Unreal NNE 상세 페이지로 이동">
+              <div>
+                <p class="tile-kicker">AI Integration</p>
+                <h3>Unreal NNE</h3>
+                <p>학습된 AI 모델을 Unreal Engine 안에서 추론하기 위해 입력 구성, C++ 호출, 결과 처리 흐름을 검증한 프로젝트.</p>
+              </div>
+              <img src="images/MNIST.gif" alt="Unreal NNE MNIST 추론 화면">
+            </a>
+
+          </div>
+
+          <div class="carousel-controls" aria-label="Project carousel controls">
+            <button class="carousel-button" type="button" aria-label="Previous project" data-carousel-prev>
+              <span aria-hidden="true">&#8249;</span>
+            </button>
+            <button class="carousel-button" type="button" aria-label="Next project" data-carousel-next>
+              <span aria-hidden="true">&#8250;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="section-inner contact-inner">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>함께 만들 수 있는 일을 이야기하고 싶습니다.</h2>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:wonyu1997@naver.com">wonyu1997@naver.com</a>
+          <a href="tel:01064298488">010-6429-8488</a>
+          <a href="https://github.com/Veduy" target="_blank" rel="noopener">github.com/Veduy</a>
+        </div>
+      </div>
     </section>
   </main>
-
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="">
-  </div>
-
   <script>
-    // Lightbox functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const row = carousel.querySelector(".project-row");
+      const previous = carousel.querySelector("[data-carousel-prev]");
+      const next = carousel.querySelector("[data-carousel-next]");
 
-    document.querySelectorAll('.tech-details img, .project-media img, img.zoomable').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
-      });
-    });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
-    // Slideshow functionality
-    let currentSlideIndex = 0;
-
-    function showSlide(index) {
-      const slides = document.querySelectorAll('.slide');
-      const dots = document.querySelectorAll('.dot');
-
-      if (index >= slides.length) {
-        currentSlideIndex = 0;
-      } else if (index < 0) {
-        currentSlideIndex = slides.length - 1;
-      } else {
-        currentSlideIndex = index;
+      if (!row || !previous || !next) {
+        return;
       }
 
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
+      const updateControls = () => {
+        const maxScroll = row.scrollWidth - row.clientWidth;
+        previous.disabled = row.scrollLeft <= 2;
+        next.disabled = row.scrollLeft >= maxScroll - 2;
+      };
 
-      slides[currentSlideIndex].classList.add('active');
-      dots[currentSlideIndex].classList.add('active');
+      const scrollByCard = (direction) => {
+        const tile = row.querySelector(".project-tile");
+        const gap = parseFloat(getComputedStyle(row).columnGap || 0);
+        const amount = tile ? tile.getBoundingClientRect().width + gap : row.clientWidth * 0.8;
+        row.scrollBy({ left: amount * direction, behavior: "smooth" });
+      };
 
-      // 슬라이드가 바뀔 때 GIF 애니메이션이 처음부터 다시 재생되도록
-      // 현재 슬라이드의 img src를 새로고침(재귀 없이)합니다.
-      const currentImg = slides[currentSlideIndex].querySelector('img');
-      const imgSrc = currentImg.getAttribute('src');
-      currentImg.setAttribute('src', '');
-      setTimeout(() => {
-        currentImg.setAttribute('src', imgSrc);
-      }, 10);
-    }
-
-    function changeSlide(direction) {
-      showSlide(currentSlideIndex + direction);
-    }
-
-    function currentSlide(index) {
-      showSlide(index);
-    }
-
-    // 페이지 로드 시 슬라이드쇼 시작
-    document.addEventListener('DOMContentLoaded', () => {
-      showSlide(0);
+      previous.addEventListener("click", () => scrollByCard(-1));
+      next.addEventListener("click", () => scrollByCard(1));
+      row.addEventListener("scroll", updateControls, { passive: true });
+      window.addEventListener("resize", updateControls);
+      updateControls();
     });
   </script>
 </body>
