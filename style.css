@@ -443,6 +443,10 @@ h1 {
   font-weight: 700;
 }
 
+.detail-actions {
+  margin-top: 24px;
+}
+
 .detail-cover {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
