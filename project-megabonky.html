@@ -40,10 +40,10 @@
         <div class="detail-meta">
           <span>1인 개발</span>
           <span>2025.12 - 2026.02</span>
-          <span>Unreal Engine</span>
+          <span>Unreal</span>
           <span>GAS</span>
-          <span>Dedicated Server</span>
           <span>MCP</span>
+          <span>Dedicated Server</span>
         </div>
         <div class="detail-actions">
           <a class="btn btn-dark" href="https://youtu.be/5Y65bu-fvtQ?si=Y5L2YbinZH2E_Aqc" target="_blank"
@@ -141,15 +141,15 @@
         <h2>MCP 기반 에디터 편집 개선</h2>
         <ul class="detail-list">
           <li>
-            <strong>도입 배경</strong><br>
+            <strong>반복되는 Blueprint 제작 흐름을 자연어로 자동화</strong><br>
             Unreal 프로젝트에서는 C++ 부모 클래스를 기반으로 Blueprint 자식 클래스를 만들고, 세부 설정은 에디터에서 조정하는 흐름이 반복됩니다. 이 과정을 자연어 명령으로 자동화할 수 있는지 검증하기 위해 Unreal MCP 플러그인을 적용했습니다.
           </li>
           <li>
-            <strong>문제 분석 및 개선</strong><br>
+            <strong>커스텀 C++ 클래스 탐색과 Blueprint 생성 한계 개선</strong><br>
             초기 플러그인은 엔진 기본 경로와 정해진 클래스 이름 규칙을 중심으로 탐색해, 직접 만든 C++ 클래스와 Blueprint 클래스를 제대로 찾지 못했습니다. 클래스 접두사 처리와 탐색 경로를 확장하고, 엔진 내장 컴포넌트 경로 및 외부 클래스 변수 접근 규칙을 추가해 커스텀 클래스 생성, 컴포넌트 부착, Blueprint 노드 생성이 가능하도록 수정했습니다.
           </li>
           <li>
-            <strong>결과</strong><br>
+            <strong>프로젝트 구조에 맞는 MCP 기반 제작 자동화 범위 확장</strong><br>
             자연어 명령으로 Unreal의 일반적인 C++ 기반 Blueprint 제작 흐름 안에서도 MCP를 활용할 수 있는 범위가 넓어졌고, 자연어 기반 Blueprint 작업이 단순 테스트 수준을 넘어 프로젝트 구조에 맞게 동작하여 개발 생산성과 자동화 가능성을 높였습니다.
           </li>
         </ul>
