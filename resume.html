@@ -192,6 +192,12 @@
       color: #333;
       word-break: keep-all;
     }
+    @media print {
+      .print-page-break {
+        break-before: page;
+        page-break-before: always;
+      }
+    }
   </style>
 </head>
 <body>
@@ -288,9 +294,9 @@
           </div>
         </div>
       </div>
-
+      
       <!-- 자기소개서 -->
-      <div class="section-header">자기소개서</div>
+      <div class="section-header print-page-break">자기소개서</div>
       <div class="cover-letter">
         <div class="cover-letter-title">성장과정</div>
         <p>
