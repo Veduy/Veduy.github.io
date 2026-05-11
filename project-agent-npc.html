@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent NPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">YuChan Won</a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://github.com/Veduy" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="detail-hero">
+      <div class="detail-hero-inner">
+        <a class="back-link" href="index.html#projects">← Projects</a>
+        <p class="detail-kicker">AI NPC Prototype</p>
+        <h1 class="detail-title">Agent NPC</h1>
+        <p class="detail-summary">
+          Unity 클라이언트와 FastAPI 백엔드를 WebSocket으로 연결해, 사용자의 자연어 명령을 NPC가 실행 가능한 행동 큐로
+          변환하는 지능형 NPC MVP 프로젝트입니다.
+        </p>
+        <div class="detail-meta">
+          <span>Unity</span>
+          <span>C#</span>
+          <span>FastAPI</span>
+          <span>WebSocket</span>
+          <span>OpenAI</span>
+          <span>LangChain</span>
+          <span>NavMesh</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="detail-block">
+        <h2>프로젝트 개요</h2>
+        <p>
+          Agent NPC는 게임 안의 NPC가 자연어 명령을 이해하고, Unity 런타임의 실제 월드 상태를 참고해 이동, 아이템 획득,
+          아이템 내려놓기 같은 행동을 수행하도록 만드는 실험 프로젝트입니다. 백엔드는 명령 의도를 분류하고 구조화된 command JSON을
+          생성하며, Unity는 씬 오브젝트 검색과 최종 행동 실행을 담당합니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2>현재 구현 범위</h2>
+        <ul class="detail-list">
+          <li>
+            <strong>자연어 명령 라우팅</strong><br>
+            FastAPI 백엔드에서 일반 대화, 기능 질문, 즉시 실행 명령, 목표형 명령을 구분하고 실행 가능한 명령만 구조화된 행동으로 변환합니다.
+          </li>
+          <li>
+            <strong>Unity 런타임 상태 조회</strong><br>
+            백엔드가 WebSocket을 통해 Unity에 `find_object`, `get_agent_state`, `get_inventory` 같은 허용된 함수 실행을 요청하고,
+            그 결과를 반영해 최종 행동 대상을 결정합니다.
+          </li>
+          <li>
+            <strong>NPC 행동 큐 실행</strong><br>
+            Unity 쪽에서는 `MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, `STOP` 명령을 큐로 처리하고, NavMesh 이동과 인벤토리 상태 변경을
+            연결했습니다.
+          </li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h2>구조</h2>
+        <div class="system-flow" aria-label="Agent NPC 시스템 구조">
+          <div>
+            <span>1</span>
+            <strong>User Command</strong>
+            <p>사용자가 자연어로 NPC에게 명령합니다.</p>
+          </div>
+          <div>
+            <span>2</span>
+            <strong>FastAPI Backend</strong>
+            <p>OpenAI 구조화 응답과 라우팅으로 실행 가능한 명령을 만듭니다.</p>
+          </div>
+          <div>
+            <span>3</span>
+            <strong>Unity Runtime</strong>
+            <p>현재 씬 오브젝트와 NPC 상태를 조회하고 행동 큐를 실행합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <h2>확장 방향</h2>
+        <ul class="detail-list">
+          <li><strong>Planner 연결</strong><br>목표형 명령을 여러 단계의 행동 계획으로 분해하는 구조를 추가할 예정입니다.</li>
+          <li><strong>세계 지식 검색</strong><br>RAG 또는 VectorDB를 연결해 아이템 의미, 장소 설명, 행동 규칙을 명령 생성에 반영할 수 있습니다.</li>
+          <li><strong>도구 계층 확장</strong><br>MCP Tool Layer를 붙여 Unity Runtime 상태 조회와 Knowledge Store 검색을 같은 메시지 흐름 위에서 다룰 계획입니다.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
