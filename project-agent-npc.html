@@ -34,17 +34,13 @@
         <p class="detail-kicker">AI NPC Prototype</p>
         <h1 class="detail-title">Agent NPC</h1>
         <p class="detail-summary">
-          Unity 클라이언트와 FastAPI 백엔드를 WebSocket으로 연결해, 사용자의 자연어 명령을 NPC가 실행 가능한 행동 큐로
-          변환하는 지능형 NPC MVP 프로젝트입니다.
+          AI agent에서 영감을 받아 자연어 명령을 해석해, npc가 행동하도록 구성해본 토이프로젝트입니다.
         </p>
         <div class="detail-meta">
           <span>Unity</span>
-          <span>C#</span>
           <span>FastAPI</span>
-          <span>WebSocket</span>
-          <span>OpenAI</span>
-          <span>LangChain</span>
-          <span>NavMesh</span>
+          <span>AI</span>
+          <span>Langchain</span>
         </div>
       </div>
     </section>
@@ -53,28 +49,24 @@
       <div class="detail-block">
         <h2>프로젝트 개요</h2>
         <p>
-          Agent NPC는 게임 안의 NPC가 자연어 명령을 이해하고, Unity 런타임의 실제 월드 상태를 참고해 이동, 아이템 획득,
-          아이템 내려놓기 같은 행동을 수행하도록 만드는 실험 프로젝트입니다. 백엔드는 명령 의도를 분류하고 구조화된 command JSON을
-          생성하며, Unity는 씬 오브젝트 검색과 최종 행동 실행을 담당합니다.
+          Agent NPC는 게임 안의 NPC가 자연어 명령을 이해하고, Unity 런타임의 실제 월드 상태를 참고해 이동, 아이템 획득, 아이템 내려놓기 같은 행동을 수행하도록 만드는 토이 프로젝트입니다. 백엔드는 명령 의도를 분류하고 해석하여 구조화된 command JSON을 생성하며, Unity는 벡엔드의 AI Agent가 실행할수 있는 도구들을 제공하고 명령 리스트의 최종 행동 실행을 담당합니다. 벡엔드의 Agent는 제공된 도구를 통해 자연어 명령을, npc가 수행가능한 action 리스트로 생성합니다.
         </p>
       </div>
 
       <div class="detail-block">
-        <h2>현재 구현 범위</h2>
+        <h2>구현 목표</h2>
         <ul class="detail-list">
           <li>
-            <strong>자연어 명령 라우팅</strong><br>
+            <strong>자연어 명령 해석</strong><br>
             FastAPI 백엔드에서 일반 대화, 기능 질문, 즉시 실행 명령, 목표형 명령을 구분하고 실행 가능한 명령만 구조화된 행동으로 변환합니다.
           </li>
           <li>
             <strong>Unity 런타임 상태 조회</strong><br>
-            백엔드가 WebSocket을 통해 Unity에 `find_object`, `get_agent_state`, `get_inventory` 같은 허용된 함수 실행을 요청하고,
-            그 결과를 반영해 최종 행동 대상을 결정합니다.
+            백엔드가 WebSocket을 통해 Unity에 `find_object`, `get_agent_state`, `get_inventory` 같은 허용된 함수 실행을 요청하고, 그 결과를 반영해 최종 행동 대상을 결정합니다.
           </li>
           <li>
             <strong>NPC 행동 큐 실행</strong><br>
-            Unity 쪽에서는 `MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, `STOP` 명령을 큐로 처리하고, NavMesh 이동과 인벤토리 상태 변경을
-            연결했습니다.
+            Unity 쪽에서는 `MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, 등 명령 리스트를 받아 NPC가 명령을 수행합니다.
           </li>
         </ul>
       </div>
@@ -101,12 +93,8 @@
       </div>
 
       <div class="detail-block">
-        <h2>확장 방향</h2>
-        <ul class="detail-list">
-          <li><strong>Planner 연결</strong><br>목표형 명령을 여러 단계의 행동 계획으로 분해하는 구조를 추가할 예정입니다.</li>
-          <li><strong>세계 지식 검색</strong><br>RAG 또는 VectorDB를 연결해 아이템 의미, 장소 설명, 행동 규칙을 명령 생성에 반영할 수 있습니다.</li>
-          <li><strong>도구 계층 확장</strong><br>MCP Tool Layer를 붙여 Unity Runtime 상태 조회와 Knowledge Store 검색을 같은 메시지 흐름 위에서 다룰 계획입니다.</li>
-        </ul>
+        <h2>테스트 화면</h2>
+
       </div>
     </section>
   </main>
