@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agent NPC</title>
+  <title>ActNPC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,53 +31,134 @@
     <section class="detail-hero">
       <div class="detail-hero-inner">
         <a class="back-link" href="index.html#projects">← Projects</a>
-        <p class="detail-kicker">Toy project</p>
+        <p class="detail-kicker">AI NPC Prototype</p>
         <h1 class="detail-title">Agent NPC</h1>
         <p class="detail-summary">
-        MCP 구조와 AI Agent에 영감을 받아 생성형 AI와 유니티엔진을 활용하여, 간단한 자연어 명령을 처리하는 NPC를 목표로 진행한 프로젝트입니다.
+          플레이어의 자연어 명령을 LLM 기반 백엔드가 해석하고, Unity NPC가 실제 게임 월드에서 이동, 아이템 획득, 내려놓기, 정지 액션으로 실행하는 자연어 기반 Unity NPC 제어 시스템입니다.
         </p>
         <div class="detail-meta">
           <span>Unity</span>
           <span>FastAPI</span>
-          <span>Langchain</span>
+          <span>WebSocket</span>
+          <span>LangChain</span>
+          <span>OpenAI API</span>
+        </div>
+        <div class="detail-actions">
+          <a class="btn btn-dark" href="https://github.com/Veduy/ActNPC_Backend.git" target="_blank"
+            rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
-
+    
     <section class="detail-content">
       <div class="detail-block">
         <h2>프로젝트 개요</h2>
+        <p>
+          정해진 명령어를 외우지 않아도 NPC에게 자연어로 행동을 지시할 수 있는 프로토타입입니다. Unity 클라이언트와 FastAPI 백엔드를 WebSocket으로 연결하고, 백엔드는 입력 의도와 현재 Unity 상태를 바탕으로 NPC가 실행할 수 있는 구조화된 액션 시퀀스를 생성합니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2>STAR 문제 해결</h2>
+        <div class="star-grid">
+          <article>
+            <span>Situation</span>
+            <h3>자연어 안에 여러 의도가 섞이는 문제</h3>
+            <p>
+              플레이어 입력은 “사과를 박스에 담아”처럼 이동, 획득, 배치 의도가 한 문장 안에 섞입니다. Unity는 자연어를 그대로 실행할 수 없기 때문에 명령을 실행 단위로 나누는 과정이 필요했습니다.
+            </p>
+          </article>
+          <article>
+            <span>Task</span>
+            <h3>Unity 실행 명령으로 안정적으로 변환</h3>
+            <p>
+              NPC 런타임이 처리할 수 있는 `MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, `STOP` 액션만 사용해 복합 명령을 순서가 있는 명령 목록으로 바꿔야 했습니다.
+            </p>
+          </article>
+          <article>
+            <span>Action</span>
+            <h3>LLM 플래너와 상태 조회 도구 연결</h3>
+            <p>
+              LLM 플래너가 Unity 씬 오브젝트, NPC 상태, 인벤토리를 tool call로 조회하게 하고, 결과를 구조화된 JSON 스키마로 반환하도록 구성했습니다. Unity 측에서는 받은 액션을 큐에 넣어 순차 실행했습니다.
+            </p>
+          </article>
+          <article>
+            <span>Result</span>
+            <h3>복합 명령이 실제 NPC 행동으로 반영</h3>
+            <p>
+              “사과를 박스에 담아” 같은 입력을 이동, 획득, 이동, 내려놓기 흐름으로 변환해 NPC가 실제 게임 월드에서 순서대로 행동하도록 만들었습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <h2>명령 처리 구조</h2>
+        <div class="system-flow">
+          <div>
+            <span>1</span>
+            <strong>입력 라우팅</strong>
+            <p>플레이어 입력을 먼저 대화와 실행 명령으로 분류해 잡담과 행동 요청을 분리했습니다.</p>
+          </div>
+          <div>
+            <span>2</span>
+            <strong>상태 조회</strong>
+            <p>명령으로 판단되면 LLM 플래너가 Unity에 씬 오브젝트, NPC 상태, 인벤토리 정보를 요청합니다.</p>
+          </div>
+          <div>
+            <span>3</span>
+            <strong>액션 큐 실행</strong>
+            <p>백엔드가 생성한 구조화 명령을 Unity NPC가 액션 큐에 등록하고 순서대로 실행합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <h2>핵심 구현</h2>
         <ul class="detail-list">
           <li>
-            <strong>LLM을 활용한 자연어 해석</strong><br>
-            사용자의 자연어 입력을 Unity에서 실행 가능한 명령으로 변환하기 위해 `TypedDict` 기반 스키마를 정의하고, LLM 응답을 자유 텍스트가 아닌 명령과 대상 오브젝트 정보를 일관된 구조로 반환하도록 설계했습니다.
+            <strong>WebSocket 기반 Unity-FastAPI 통신</strong><br>
+            플레이어 입력, Unity 상태 조회 요청, 상태 조회 결과, 최종 명령 응답을 하나의 WebSocket 연결 안에서 처리했습니다.
           </li>
           <li>
-            <strong>Tool 기반 행동 계획 에이전트</strong></br>
-            Unity 씬 상태 조회 도구를 LLM Agent에게 제공하고, Agent가 필요한 도구를 호출해 현재 상황을 파악한 뒤 실행 가능한 NPC 행동 계획을 생성하도록 구성했습니다.
+            <strong>LLM 입력 라우터</strong><br>
+            모든 입력을 무조건 행동 명령으로 보내지 않고, 대화와 실행 명령을 먼저 분류했습니다. 대화는 말풍선 응답으로 처리하고, 행동이 필요한 입력만 플래너로 전달했습니다.
+          </li>
+          <li>
+            <strong>Unity 상태 조회 Tool Call</strong><br>
+            LLM이 추측만으로 대상을 고르지 않도록 씬 오브젝트, NPC 위치, 보유 아이템 정보를 Unity에서 조회한 뒤 명령을 생성하게 했습니다.
+          </li>
+          <li>
+            <strong>구조화된 명령 스키마</strong><br>
+            LLM 응답을 자유 텍스트가 아니라 `actions` 배열로 제한해 Unity가 실행 가능한 명령만 받을 수 있도록 했습니다.
+          </li>
+          <li>
+            <strong>SSE 디버그 이벤트 뷰</strong><br>
+            플래너가 어떤 tool call을 보냈고 Unity가 어떤 결과를 반환했는지 확인할 수 있는 디버그 뷰를 만들어 명령 변환 과정을 추적할 수 있게 했습니다.
           </li>
         </ul>
       </div>
 
       <div class="detail-block">
-        <h2>명령 처리 구조</h2>
-
+        <h2>예시 명령</h2>
+        <div class="command-example">
+          <div>
+            <p class="command-label">Player Input</p>
+            <strong>사과를 박스에 담아</strong>
+          </div>
+          <ol>
+            <li><span>MOVE_TO</span> apple 위치로 이동</li>
+            <li><span>GET_ITEM</span> apple 획득</li>
+            <li><span>MOVE_TO</span> box 위치로 이동</li>
+            <li><span>PUT_ITEM</span> apple 내려놓기</li>
+          </ol>
+        </div>
       </div>
 
-      <div class="detail-block">
-        <h2>개발시 겪은 문제</h2>
+            <section class="detail-cover">
+        <img src="images/agent_npc_thumbnail.gif" alt="ActNPC 자연어 명령 실행 데모">
+      </section>
 
-          <ul class="detail-list">
-            <li>
-              <strong>자연어의 의도 판별 라우팅단계 추가</strong>
-              <ul class="sub-list">
-                <li>
-                  OpenAI API를 사용해서 LLM API를 사용해 테스트 하던중, 모든 자연어 입력에 대해서 긴 명령 파싱 프롬프트를 사용하다 보니, 불필요한 토큰 사용량이 증가됨을 확인했습니다. 개선하기위해 상대적으로 API 비용이 낮은 모델로 우선적으로 변경을 하였습니다. 
-                </li>                
-              </ul>
-            </li>
-          </ul>
-      </div>
 
     </section>
   </main>
