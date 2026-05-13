@@ -681,6 +681,87 @@ h1 {
   color: var(--muted-strong);
 }
 
+.star-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.star-grid article {
+  min-height: 240px;
+  padding: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.star-grid span,
+.command-label {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.star-grid h3 {
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.star-grid p {
+  margin-bottom: 0;
+  color: var(--muted-strong);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.command-example {
+  display: grid;
+  grid-template-columns: minmax(220px, 32%) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.command-example>div,
+.command-example ol {
+  margin: 0;
+  padding: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.command-example strong {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.command-example ol {
+  display: grid;
+  gap: 10px;
+  list-style-position: inside;
+}
+
+.command-example li {
+  color: var(--muted-strong);
+  font-size: 1rem;
+}
+
+.command-example li span {
+  display: inline-flex;
+  min-width: 82px;
+  margin-right: 8px;
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -810,6 +891,11 @@ h1 {
   }
 
   .system-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .star-grid,
+  .command-example {
     grid-template-columns: 1fr;
   }
 }
