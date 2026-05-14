@@ -21,7 +21,6 @@
         <a href="index.html#about">About</a>
         <a href="index.html#skills">Skills</a>
         <a href="index.html#projects">Projects</a>
-        <a href="resume.html">Resume</a>
         <a href="https://github.com/Veduy" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
@@ -86,21 +85,21 @@
             <span>Situation</span>
             <h3>명령안에 세부 명령 의도가 내포 되어 있음</h3>
             <p>
-              플레이어 입력은 “사과를 박스에 담아”처럼 이동, 획득, 배치 의도가 한 문장 안에 섞입니다. Unity는 자연어를 그대로 실행할 수 없기 때문에 명령을 실행 단위로 나누는 과정이 필요했습니다.
+              유저의 자연어 입력은 “사과를 박스에 담아”처럼 이동, 획득, 배치 의도가 한 문장 안에 섞입니다. NPC 캐릭터는 자연어를 그대로 실행할 수 없기 때문에 명령을 NPC가 동작가능한 최소한의 실행 단위로 분할하는 과정이 필요하다 생각했습니다.
             </p>
           </article>
           <article>
             <span>Task</span>
-            <h3>Unity엔진에서 실행가능한 명령으로 변환</h3>
+            <h3>캐릭터가 실행가능한 명령으로 변환</h3>
             <p>
-              NPC가 런타임 중에 실행할수 있는 행동들을 최소 단위(`MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, `STOP`)로 정의하고, 복합적인 의미가 있는 명령을 순서가 있는 최소단위의 명령 목록들로 바꿔야 했습니다.
+              NPC가 런타임 중에 실행할수 있는 행동들을 최소 단위(`MOVE_TO`, `GET_ITEM`, `PUT_ITEM`, `STOP`)로 정의하고, 복합적인 의미가 있는 명령을 순서가 있는 최소단위의 명령 목록들로 바꾸는 작업이 필요했습니다.
             </p>
           </article>
           <article>
             <span>Action</span>
-            <h3>백엔드의 AI Agent(Planner)와 상태 조회 도구 연결</h3>
+            <h3>AI Agent와 상태 조회 도구 연결</h3>
             <p>
-              Planner가 Unity 씬 오브젝트, NPC 상태, 인벤토리를 tool call로 조회하게 하고, 결과를 구조화된 JSON 스키마로 반환하도록 구성했습니다. Unity 측에서는 받은 액션을 큐에 넣어 순차 실행했습니다.
+              AI Agent에게 현재 월드의 오브젝트 정보, NPC 상태, 인벤토리 상태 등의 정보를 조회할수 있는 도구(기능)를 제공했습니다. 제공된 도구를 바탕으로 자연어를 실행 가능한 명령 리스트로 변환하고, NPC가 명령들을 순차적으로 동작하도록 했습니다.
             </p>
           </article>
           <article>
@@ -112,8 +111,6 @@
           </article>
         </div>
       </div>
-
-
 
       <div class="detail-block">
         <h2>핵심 구현</h2>
@@ -128,7 +125,7 @@
           </li>
           <li>
             <strong>Tool 기반 Agent</strong><br>
-            복합 명령을 올바른 순서의 행동 리스트로 만들려면 현재 씬의 오브젝트 위치, NPC 상태, 인벤토리 상태를 먼저 확인해야 했습니다. 그래서 씬 오브젝트, NPC 상태, 인벤토리를 조회할 수 있는 도구를 Planner Agent에 등록하고, 명령 생성 과정에서 필요한 정보를 직접 확인하도록 구성했습니다. 이를 통해 아이템을 먼저 획득한 뒤 지정된 위치로 이동해 내려놓는 것처럼, 현재 상태에 맞는 순서의 행동 리스트를 만들 수 있게 했습니다.
+            복합 명령을 올바른 순서의 행동 리스트로 만들려면 현재 씬의 오브젝트 위치, NPC 상태, 인벤토리 상태를 먼저 확인해야 했습니다. 그래서 씬 오브젝트, NPC 상태, 인벤토리를 조회할 수 있는 도구를 AI Agent(Planner)에 등록하고, 명령 생성 과정에서 필요한 정보를 제공된 도구를 통해 확인하도록 구현했습니다. 이를 통해 아이템을 먼저 획득한 뒤 지정된 위치로 이동해 내려놓는 것처럼, 현재 상태에 맞는 순서의 행동 리스트를 만들 수 있게 했습니다.
           </li>
           <li>
             <strong>AI Memory Handling</strong><br>
